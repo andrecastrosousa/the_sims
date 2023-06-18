@@ -20,5 +20,11 @@ public class Database {
             new Action(ActionType.WATCH_TV)
     ));
 
+    public static List<House> houses = new ArrayList<>(List.of(
+       new House(new ArrayList<>(), 10000),
+       new House(new ArrayList<>(), 100000),
+       new House(new ArrayList<>(), 1000000)
+    ));
+
     private Database() {};
 }

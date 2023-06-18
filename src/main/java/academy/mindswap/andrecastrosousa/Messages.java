@@ -14,5 +14,13 @@ public class Messages {
 
     public static final String NO_FUNDS_ENOUGH = "Character has no funds to buy.";
 
+    public static final String SEPARATOR = "---------------------------------------";
+
+    public static final String EXIT_COMMAND = "Exit";
+
+    public static final String ENTER_GAME_COMMAND = "Exit";
+
+    public static final String BUY_HOUSE_COMMAND = "Exit";
+
     private Messages () {}
 }

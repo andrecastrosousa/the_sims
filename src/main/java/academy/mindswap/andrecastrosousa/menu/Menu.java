@@ -1,6 +1,11 @@
 package academy.mindswap.andrecastrosousa.menu;
 
+import academy.mindswap.andrecastrosousa.character.Character;
+import academy.mindswap.andrecastrosousa.menu.command.Command;
+
 public interface Menu {
 
-    Command execute(int option);
+    Menu getEnumByOption(int option);
+
+    Command execute(int option, Character character);
 }

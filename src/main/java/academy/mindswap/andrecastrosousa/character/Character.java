@@ -24,6 +24,10 @@ public class Character {
         return name;
     }
 
+    public House getHouse() {
+        return house;
+    }
+
     public void setAccount(Account account) {
         this.account = account;
     }

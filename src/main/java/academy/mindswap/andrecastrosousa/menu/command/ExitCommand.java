@@ -1,4 +1,4 @@
-package academy.mindswap.andrecastrosousa.menu;
+package academy.mindswap.andrecastrosousa.menu.command;
 
 public class ExitCommand implements Command {
     @Override
