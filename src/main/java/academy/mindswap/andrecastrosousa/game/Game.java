@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.game;
 
-import academy.mindswap.andrecastrosousa.Messages;
+import academy.mindswap.andrecastrosousa.utils.Messages;
 import academy.mindswap.andrecastrosousa.bank.Account;
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.character.Gender;

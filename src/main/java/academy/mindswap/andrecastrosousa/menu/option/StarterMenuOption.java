@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.menu.option;
 
-import academy.mindswap.andrecastrosousa.Messages;
+import academy.mindswap.andrecastrosousa.utils.Messages;
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.menu.command.Command;
 import academy.mindswap.andrecastrosousa.menu.command.ExitCommand;

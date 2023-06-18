@@ -1,4 +1,4 @@
-package academy.mindswap.andrecastrosousa;
+package academy.mindswap.andrecastrosousa.utils;
 
 public class Messages {
 
@@ -21,6 +21,8 @@ public class Messages {
     public static final String ENTER_GAME_COMMAND = "Check yourself";
 
     public static final String BUY_HOUSE_COMMAND = "Buy a house";
+
+    public static final String HOUSE_ALREADY_CLEAN = "House is without any dirty.";
 
     private Messages () {}
 }

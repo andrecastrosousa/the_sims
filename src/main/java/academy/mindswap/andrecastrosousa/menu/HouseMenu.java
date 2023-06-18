@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.menu;
 
-import academy.mindswap.andrecastrosousa.Messages;
+import academy.mindswap.andrecastrosousa.utils.Messages;
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoHouseException;
 import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;

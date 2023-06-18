@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.exceptions;
 
-import academy.mindswap.andrecastrosousa.Messages;
+import academy.mindswap.andrecastrosousa.utils.Messages;
 
 public class NoFundsEnoughtException extends Exception {
     public NoFundsEnoughtException() {
