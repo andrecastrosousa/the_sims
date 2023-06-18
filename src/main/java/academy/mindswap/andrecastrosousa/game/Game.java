@@ -7,7 +7,7 @@ import academy.mindswap.andrecastrosousa.character.Gender;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoHouseException;
 import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
-import academy.mindswap.andrecastrosousa.menu.MenuChecker;
+import academy.mindswap.andrecastrosousa.menu.strategy.MenuChecker;
 import academy.mindswap.andrecastrosousa.menu.TerminalInteraction;
 
 import java.io.IOException;

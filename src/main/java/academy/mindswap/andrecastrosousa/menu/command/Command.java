@@ -4,6 +4,7 @@ import academy.mindswap.andrecastrosousa.exceptions.CharacterNoHouseException;
 import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
 
+
 public interface Command {
     void execute() throws NoFundsEnoughtException, CharacterNoHouseException, ExitApplication;
 }
