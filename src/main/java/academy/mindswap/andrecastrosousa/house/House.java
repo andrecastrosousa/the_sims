@@ -2,8 +2,8 @@ package academy.mindswap.andrecastrosousa.house;
 
 import academy.mindswap.andrecastrosousa.exceptions.HouseAlreadyCleanException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
-import academy.mindswap.andrecastrosousa.house.dirty.DirtyLevel;
-import academy.mindswap.andrecastrosousa.house.dirty.DirtyState;
+import academy.mindswap.andrecastrosousa.house.state.DirtyLevel;
+import academy.mindswap.andrecastrosousa.house.state.DirtyState;
 
 import java.util.List;
 

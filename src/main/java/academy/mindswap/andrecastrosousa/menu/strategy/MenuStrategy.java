@@ -4,6 +4,7 @@ import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoHouseException;
 import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
+import academy.mindswap.andrecastrosousa.house.House;
 import academy.mindswap.andrecastrosousa.menu.TerminalInteraction;
 
 import java.io.IOException;

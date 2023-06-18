@@ -2,6 +2,8 @@ package academy.mindswap.andrecastrosousa.menu.command;
 
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoHouseException;
+import academy.mindswap.andrecastrosousa.game.Game;
+import academy.mindswap.andrecastrosousa.menu.TerminalInteraction;
 import academy.mindswap.andrecastrosousa.menu.command.Command;
 
 public class StartCommand implements Command {
@@ -16,5 +18,6 @@ public class StartCommand implements Command {
         if(character.getHouse() == null) {
             throw new CharacterNoHouseException();
         }
+        Game.setTerminalInteraction(TerminalInteraction.ACTIONS_MENU);
     }
 }

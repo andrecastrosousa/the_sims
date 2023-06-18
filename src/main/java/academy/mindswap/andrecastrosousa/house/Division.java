@@ -4,40 +4,33 @@ import academy.mindswap.andrecastrosousa.action.ActionType;
 
 public class Division {
     private final String name;
-    private final ActionType actionType;
+    private final ActionType type;
     private final double exp;
-    private final DivisionType type;
 
-    public Division(String name, ActionType actionType, double exp, DivisionType type) {
+    public Division(String name, ActionType type, double exp) {
         this.name = name;
-        this.actionType = actionType;
-        this.exp = exp;
         this.type = type;
+        this.exp = exp;
     }
 
     public String getName() {
         return name;
     }
 
-    public ActionType getActionType() {
-        return actionType;
+    public ActionType getType() {
+        return type;
     }
 
     public double getExp() {
         return exp;
     }
 
-    public DivisionType getType() {
-        return type;
-    }
-
     @Override
     public String toString() {
         return "Division{" +
                 "name='" + name + '\'' +
-                ", actionType=" + actionType +
-                ", exp=" + exp +
                 ", type=" + type +
+                ", exp=" + exp +
                 '}';
     }
 }

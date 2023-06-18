@@ -1,4 +1,4 @@
-package academy.mindswap.andrecastrosousa.house.dirty;
+package academy.mindswap.andrecastrosousa.house.state;
 
 public enum DirtyLevel {
     CLEAN,

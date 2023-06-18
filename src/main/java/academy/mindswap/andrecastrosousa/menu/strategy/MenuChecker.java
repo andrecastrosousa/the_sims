@@ -6,6 +6,7 @@ import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
 import academy.mindswap.andrecastrosousa.menu.TerminalInteraction;
 import academy.mindswap.andrecastrosousa.menu.command.CommandInvoker;
+import shaded_package.org.checkerframework.checker.units.qual.A;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,7 +25,8 @@ public class MenuChecker {
 
         menus = new ArrayList<>(List.of(
                 new StarterMenu(commandInvoker),
-                new HouseMenu(commandInvoker)
+                new HouseMenu(commandInvoker),
+                new ActionMenu(commandInvoker)
         ));
     }
 

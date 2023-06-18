@@ -2,7 +2,9 @@ package academy.mindswap.andrecastrosousa.menu.command;
 
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
+import academy.mindswap.andrecastrosousa.game.Game;
 import academy.mindswap.andrecastrosousa.house.House;
+import academy.mindswap.andrecastrosousa.menu.TerminalInteraction;
 
 public class BuyHouseCommand implements Command {
     private Character character;
@@ -16,11 +18,10 @@ public class BuyHouseCommand implements Command {
 
     @Override
     public void execute() throws NoFundsEnoughtException {
-        System.out.println("ALO");
         if(character.getBalance() < house.getCost()) {
             throw new NoFundsEnoughtException();
         }
-        System.out.println("You have funds enough");
-
+        character.setHouse(house);
+        Game.setTerminalInteraction(TerminalInteraction.ACTIONS_MENU);
     }
 }

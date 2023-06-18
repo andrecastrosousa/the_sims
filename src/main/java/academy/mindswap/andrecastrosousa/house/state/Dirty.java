@@ -1,4 +1,4 @@
-package academy.mindswap.andrecastrosousa.house.dirty;
+package academy.mindswap.andrecastrosousa.house.state;
 
 import academy.mindswap.andrecastrosousa.exceptions.HouseAlreadyCleanException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;

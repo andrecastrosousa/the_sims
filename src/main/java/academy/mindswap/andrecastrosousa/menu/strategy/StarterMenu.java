@@ -1,5 +1,6 @@
 package academy.mindswap.andrecastrosousa.menu.strategy;
 
+import academy.mindswap.andrecastrosousa.house.House;
 import academy.mindswap.andrecastrosousa.menu.TerminalInteraction;
 import academy.mindswap.andrecastrosousa.menu.command.CommandInvoker;
 import academy.mindswap.andrecastrosousa.menu.strategy.MenuStrategy;
