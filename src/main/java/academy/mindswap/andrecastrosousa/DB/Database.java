@@ -22,19 +22,19 @@ public class Database {
 
     public static List<House> houses = new ArrayList<>(List.of(
        new House(new ArrayList<>(List.of(
-               new Division("Bedroom", ActionType.SLEEP, 10),
-               new Division("Bathroom", ActionType.PEE, 10),
-               new Division("Cousine", ActionType.EAT, 10)
+               new Division("Bedroom", ActionType.SLEEP, 10, 20),
+               new Division("Bathroom", ActionType.PEE, 10, 20),
+               new Division("Cousine", ActionType.EAT, 10, 20)
        )), 10000),
        new House(new ArrayList<>(List.of(
-               new Division("Bedroom", ActionType.SLEEP, 100),
-               new Division("Bathroom", ActionType.PEE, 100),
-               new Division("Cousine", ActionType.EAT, 100)
+               new Division("Bedroom", ActionType.SLEEP, 100, 20),
+               new Division("Bathroom", ActionType.PEE, 100, 20),
+               new Division("Cousine", ActionType.EAT, 100, 20)
        )), 100000),
        new House(new ArrayList<>(List.of(
-               new Division("Bedroom", ActionType.SLEEP, 250),
-               new Division("Bathroom", ActionType.PEE, 250),
-               new Division("Cousine", ActionType.EAT, 250)
+               new Division("Bedroom", ActionType.SLEEP, 250, 20),
+               new Division("Bathroom", ActionType.PEE, 250, 20),
+               new Division("Cousine", ActionType.EAT, 250, 20)
        )), 1000000)
     ));
 

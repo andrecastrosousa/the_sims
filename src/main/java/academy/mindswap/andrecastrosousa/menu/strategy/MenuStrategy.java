@@ -3,6 +3,7 @@ package academy.mindswap.andrecastrosousa.menu.strategy;
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoHouseException;
 import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;
+import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
 import academy.mindswap.andrecastrosousa.house.House;
 import academy.mindswap.andrecastrosousa.menu.TerminalInteraction;
@@ -13,5 +14,5 @@ public interface MenuStrategy {
 
     boolean canHandle(TerminalInteraction menuFlow);
 
-    void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException;
+    void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException;
 }

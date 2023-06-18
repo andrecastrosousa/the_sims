@@ -1,5 +1,6 @@
 package academy.mindswap.andrecastrosousa.game;
 
+import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 import academy.mindswap.andrecastrosousa.bank.Account;
 import academy.mindswap.andrecastrosousa.character.Character;
@@ -32,7 +33,7 @@ public class Game {
         while(true) {
             try {
                 menu.showMenu(terminalInteraction, character);
-            } catch (IOException e) {
+            } catch (IOException | HouseTooDirtyException e) {
                 System.out.println(e.getMessage());
             } catch (ExitApplication e) {
                 System.exit(0);

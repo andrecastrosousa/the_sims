@@ -1,7 +1,10 @@
 package academy.mindswap.andrecastrosousa.character;
 
+import academy.mindswap.andrecastrosousa.action.Action;
 import academy.mindswap.andrecastrosousa.bank.Account;
 import academy.mindswap.andrecastrosousa.house.House;
+
+import java.util.List;
 
 public class Character {
     private String name;
@@ -11,6 +14,8 @@ public class Character {
     private Account account;
 
     private House house;
+
+    private List<Action> actions;
 
     public Gender getGender() {
         return gender;
@@ -42,5 +47,13 @@ public class Character {
 
     public double getBalance() {
         return account.getBalance();
+    }
+
+    public void setActions(List<Action> actions) {
+        this.actions = actions;
+    }
+
+    public List<Action> getActions() {
+        return actions;
     }
 }

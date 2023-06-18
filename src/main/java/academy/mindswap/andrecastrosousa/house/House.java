@@ -48,6 +48,7 @@ public class House {
         return "House{" +
                 "divisions=" + divisions +
                 ", cost=" + cost +
+                ", dirtyLevel=" + dirtyLevel +
                 '}';
     }
 

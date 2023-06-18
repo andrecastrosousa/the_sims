@@ -3,12 +3,14 @@ package academy.mindswap.andrecastrosousa.menu.strategy;
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoHouseException;
 import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;
+import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
 import academy.mindswap.andrecastrosousa.house.Division;
 import academy.mindswap.andrecastrosousa.house.House;
 import academy.mindswap.andrecastrosousa.menu.TerminalInteraction;
 import academy.mindswap.andrecastrosousa.menu.command.Command;
 import academy.mindswap.andrecastrosousa.menu.command.CommandInvoker;
+import academy.mindswap.andrecastrosousa.menu.command.DoActionCommand;
 import academy.mindswap.andrecastrosousa.menu.option.StarterMenuOption;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 
@@ -30,7 +32,7 @@ public class ActionMenu implements MenuStrategy {
     }
 
     @Override
-    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException {
+    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException {
         System.out.println(Messages.SEPARATOR);
         List<Division> divisions = character.getHouse().getDivisions();
         for (int i = 0; i < divisions.size(); i++) {
@@ -42,8 +44,7 @@ public class ActionMenu implements MenuStrategy {
 
         String message = reader.readLine();
 
-        Command command = StarterMenuOption.execute(Integer.parseInt(message), character);
-        commandInvoker.setCommand(command);
+        commandInvoker.setCommand(new DoActionCommand(character, divisions.get(Integer.parseInt(message))));
         commandInvoker.invoke();
     }
 }

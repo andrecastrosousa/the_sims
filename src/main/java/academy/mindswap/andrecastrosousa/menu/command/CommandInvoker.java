@@ -2,6 +2,7 @@ package academy.mindswap.andrecastrosousa.menu.command;
 
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoHouseException;
 import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;
+import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
 
 /**
@@ -15,7 +16,7 @@ public class CommandInvoker {
         this.command = command;
     }
 
-    public void invoke() throws ExitApplication, CharacterNoHouseException, NoFundsEnoughtException {
+    public void invoke() throws ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException {
         command.execute();
     }
 }

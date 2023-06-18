@@ -1,5 +1,6 @@
 package academy.mindswap.andrecastrosousa.menu.strategy;
 
+import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.house.House;
 import academy.mindswap.andrecastrosousa.menu.TerminalInteraction;
 import academy.mindswap.andrecastrosousa.menu.command.CommandInvoker;
@@ -29,7 +30,7 @@ public class StarterMenu implements MenuStrategy {
     }
 
     @Override
-    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException {
+    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException {
         System.out.println(Messages.SEPARATOR);
         for (StarterMenuOption starterMenu: StarterMenuOption.values()) {
             System.out.println(starterMenu.getOption() + " -> " + starterMenu.getMessage());

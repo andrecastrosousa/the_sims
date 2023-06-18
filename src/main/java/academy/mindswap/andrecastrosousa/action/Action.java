@@ -33,4 +33,12 @@ public class Action {
         }
         this.stamina += stamina;
     }
+
+    @Override
+    public String toString() {
+        return "Action{" +
+                "type=" + type +
+                ", stamina=" + stamina +
+                '}';
+    }
 }

@@ -8,6 +8,8 @@ public class Messages {
 
     public static final String CHARACTER_NO_MORE_HOUSE = "Character can only have one house.";
 
+    public static final String CHARACTER_NO_ACTION = "Action doesn't exist in this Character.";
+
     public static final String CHARACTER_HUNGRY = "Character is hungry. Eat first.";
 
     public static final String HOUSE_TOO_DIRTY = "House must be clean. Call an housekeeper.";
