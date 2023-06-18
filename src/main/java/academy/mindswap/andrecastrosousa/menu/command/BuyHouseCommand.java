@@ -16,9 +16,11 @@ public class BuyHouseCommand implements Command {
 
     @Override
     public void execute() throws NoFundsEnoughtException {
-        if(character.getAccount().getBalance() < house.getCost()) {
+        System.out.println("ALO");
+        if(character.getBalance() < house.getCost()) {
             throw new NoFundsEnoughtException();
         }
+        System.out.println("You have funds enough");
 
     }
 }

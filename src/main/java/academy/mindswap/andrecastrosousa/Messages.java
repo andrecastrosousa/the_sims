@@ -18,9 +18,9 @@ public class Messages {
 
     public static final String EXIT_COMMAND = "Exit";
 
-    public static final String ENTER_GAME_COMMAND = "Exit";
+    public static final String ENTER_GAME_COMMAND = "Check yourself";
 
-    public static final String BUY_HOUSE_COMMAND = "Exit";
+    public static final String BUY_HOUSE_COMMAND = "Buy a house";
 
     private Messages () {}
 }

@@ -30,4 +30,14 @@ public class Division {
     public DivisionType getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Division{" +
+                "name='" + name + '\'' +
+                ", actionType=" + actionType +
+                ", exp=" + exp +
+                ", type=" + type +
+                '}';
+    }
 }

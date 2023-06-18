@@ -2,6 +2,10 @@ package academy.mindswap.andrecastrosousa.menu;
 
 import academy.mindswap.andrecastrosousa.Messages;
 import academy.mindswap.andrecastrosousa.character.Character;
+import academy.mindswap.andrecastrosousa.exceptions.CharacterNoHouseException;
+import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;
+import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
+import academy.mindswap.andrecastrosousa.menu.command.Command;
 import academy.mindswap.andrecastrosousa.menu.option.BuyHouseMenuOption;
 
 import java.io.BufferedReader;
@@ -16,7 +20,7 @@ public class HouseMenu implements MenuStrategy {
     }
 
     @Override
-    public int handle(Character character) throws IOException {
+    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException {
         System.out.println(Messages.SEPARATOR);
         for (BuyHouseMenuOption houseMenu: BuyHouseMenuOption.values()) {
             System.out.println(houseMenu.getOption() + " -> " + houseMenu.getHouse());
@@ -27,8 +31,8 @@ public class HouseMenu implements MenuStrategy {
 
         String message = reader.readLine();
 
-        // Command command = execute(Integer.getInteger(message), character);
+        Command command = BuyHouseMenuOption.execute(Integer.parseInt(message), character);
+        command.execute();
 
-        return 1;
     }
 }

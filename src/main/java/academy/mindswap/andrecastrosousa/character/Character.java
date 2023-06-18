@@ -12,10 +12,6 @@ public class Character {
 
     private House house;
 
-    public Account getAccount() {
-        return account;
-    }
-
     public Gender getGender() {
         return gender;
     }
@@ -42,5 +38,9 @@ public class Character {
 
     public void setHouse(House house) {
         this.house = house;
+    }
+
+    public double getBalance() {
+        return account.getBalance();
     }
 }

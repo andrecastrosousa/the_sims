@@ -19,4 +19,12 @@ public class House {
     public List<Division> getDivisions() {
         return divisions;
     }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "divisions=" + divisions +
+                ", cost=" + cost +
+                '}';
+    }
 }

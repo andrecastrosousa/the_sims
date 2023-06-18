@@ -3,15 +3,13 @@ package academy.mindswap.andrecastrosousa.menu.option;
 import academy.mindswap.andrecastrosousa.DB.Database;
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.house.House;
-import academy.mindswap.andrecastrosousa.menu.HouseMenu;
-import academy.mindswap.andrecastrosousa.menu.Menu;
 import academy.mindswap.andrecastrosousa.menu.command.BuyHouseCommand;
 import academy.mindswap.andrecastrosousa.menu.command.Command;
 import academy.mindswap.andrecastrosousa.menu.command.ExitCommand;
 
 import java.util.Arrays;
 
-public enum BuyHouseMenuOption implements Menu {
+public enum BuyHouseMenuOption {
     FIRST_HOUSE(1, null),
     SECOND_HOUSE(2, null),
     THIRD_HOUSE(3, null),
@@ -28,18 +26,16 @@ public enum BuyHouseMenuOption implements Menu {
 
     BuyHouseMenuOption(int option, House house) {
         this.option = option;
-        this.house = Database.houses.get(option);
+        this.house = Database.houses.get(option - 1);
     }
 
-    @Override
-    public BuyHouseMenuOption getEnumByOption(int option) {
+    public static BuyHouseMenuOption getEnumByOption(int option) {
         return Arrays.stream(BuyHouseMenuOption.values())
                 .filter(o -> o.option == option)
                 .findFirst().orElse(UNKNOWN_HOUSE);
     }
 
-    @Override
-    public Command execute(int option, Character character) {
+    public static Command execute(int option, Character character) {
         BuyHouseMenuOption houseMenu = getEnumByOption(option);
 
         return switch (houseMenu) {
