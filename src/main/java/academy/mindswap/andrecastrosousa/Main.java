@@ -1,9 +1,6 @@
 package academy.mindswap.andrecastrosousa;
 
-import academy.mindswap.andrecastrosousa.bank.Account;
-import academy.mindswap.andrecastrosousa.character.Character;
-import academy.mindswap.andrecastrosousa.character.Gender;
-import academy.mindswap.andrecastrosousa.game.Game;
+import academy.mindswap.andrecastrosousa.domain.Game;
 
 import java.io.IOException;
 

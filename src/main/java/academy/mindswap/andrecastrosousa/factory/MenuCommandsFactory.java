@@ -1,13 +1,12 @@
 package academy.mindswap.andrecastrosousa.factory;
 
-import academy.mindswap.andrecastrosousa.character.Character;
+import academy.mindswap.andrecastrosousa.command.menu.*;
+import academy.mindswap.andrecastrosousa.domain.Character;
 import academy.mindswap.andrecastrosousa.exceptions.UnknownCommandException;
-import academy.mindswap.andrecastrosousa.menu.command.*;
-import academy.mindswap.andrecastrosousa.menu.command.navigate.ExitCommand;
-import academy.mindswap.andrecastrosousa.menu.command.navigate.GoToActionCommand;
-import academy.mindswap.andrecastrosousa.menu.command.navigate.GoToBuyHouseCommand;
-import academy.mindswap.andrecastrosousa.menu.option.SimMenuOption;
-import academy.mindswap.andrecastrosousa.menu.option.StarterMenuOption;
+import academy.mindswap.andrecastrosousa.command.navigate.ExitCommand;
+import academy.mindswap.andrecastrosousa.command.navigate.GoToActionCommand;
+import academy.mindswap.andrecastrosousa.domain.enums.SimMenuOption;
+import academy.mindswap.andrecastrosousa.domain.enums.StarterMenuOption;
 
 /**
  * Design pattern: Abstract Factory
@@ -28,6 +27,8 @@ public abstract class MenuCommandsFactory {
 
     public static Command fromSimMenu(int option, Character character) throws UnknownCommandException {
         SimMenuOption starterMenuOption = SimMenuOption.getEnumByOption(option);
+
+        System.out.println(starterMenuOption);
 
         return switch (starterMenuOption) {
             case ACTIONS -> new GoToActionCommand();
