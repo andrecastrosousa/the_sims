@@ -17,6 +17,6 @@ public class StartCommand implements Command {
         if(character.getHouse() == null) {
             throw new CharacterNoHouseException();
         }
-        Game.setMenuType(MenuType.ACTIONS_MENU);
+        Game.setMenuType(MenuType.SIM_MENU);
     }
 }

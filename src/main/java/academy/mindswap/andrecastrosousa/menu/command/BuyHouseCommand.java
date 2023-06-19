@@ -23,6 +23,6 @@ public class BuyHouseCommand implements Command {
         }
         character.setHouse(house);
 
-        Game.setMenuType(MenuType.ACTIONS_MENU);
+        Game.setMenuType(MenuType.SIM_MENU);
     }
 }

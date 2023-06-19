@@ -2,34 +2,21 @@ package academy.mindswap.andrecastrosousa.menu.strategy;
 
 import academy.mindswap.andrecastrosousa.DB.Database;
 import academy.mindswap.andrecastrosousa.action.command.ActionCommand;
-import academy.mindswap.andrecastrosousa.action.command.ActionType;
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.exceptions.*;
-import academy.mindswap.andrecastrosousa.house.Division;
 import academy.mindswap.andrecastrosousa.menu.MenuType;
-import academy.mindswap.andrecastrosousa.menu.command.BackCommand;
+import academy.mindswap.andrecastrosousa.menu.command.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.menu.command.Command;
 import academy.mindswap.andrecastrosousa.menu.command.CommandInvoker;
 import academy.mindswap.andrecastrosousa.menu.command.DoActionCommand;
-import academy.mindswap.andrecastrosousa.menu.option.StarterMenuOption;
 import academy.mindswap.andrecastrosousa.utils.MenuTerminal;
-import academy.mindswap.andrecastrosousa.utils.Messages;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 
-public class ActionMenu implements Menu {
-    CommandInvoker commandInvoker;
-
+public class ActionMenu extends MenuBase {
     public ActionMenu(CommandInvoker commandInvoker) {
-        this.commandInvoker = commandInvoker;
-    }
-
-    @Override
-    public boolean canHandle(MenuType menuFlow) {
-        return menuFlow == MenuType.ACTIONS_MENU;
+        super(commandInvoker, MenuType.ACTIONS_MENU);
     }
 
     @Override
@@ -57,15 +44,8 @@ public class ActionMenu implements Menu {
         commandInvoker.invoke();
     }
 
-    private Command getValidCommand(String message, Character character, List<ActionCommand> commands) throws UnknownCommandException {
-        int selectedOption = Integer.parseInt(message);
-
-        if(selectedOption == Database.houses.size()) {
-            return new BackCommand();
-        } else if(selectedOption >= 0 && selectedOption < Database.houses.size()) {
-            return new DoActionCommand(character, commands.get(selectedOption));
-        } else {
-            throw new UnknownCommandException();
-        }
+    @Override
+    protected Command getValidCommand(String message, Character character) throws UnknownCommandException {
+        throw new UnknownCommandException();
     }
 }

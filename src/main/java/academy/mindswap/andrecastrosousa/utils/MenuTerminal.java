@@ -37,7 +37,6 @@ public class MenuTerminal {
     }
 
     public static class MenuTerminalBuilder {
-
         private List<String> options;
         private boolean hasBackButton;
 

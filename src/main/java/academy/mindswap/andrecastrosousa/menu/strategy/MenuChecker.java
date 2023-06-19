@@ -23,7 +23,8 @@ public class MenuChecker {
         menus = new ArrayList<>(List.of(
                 new StarterMenu(commandInvoker),
                 new HouseMenu(commandInvoker),
-                new ActionMenu(commandInvoker)
+                new ActionMenu(commandInvoker),
+                new SimMenu(commandInvoker)
         ));
     }
 

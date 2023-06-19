@@ -13,6 +13,7 @@ public abstract class MenuState implements MenuStateI {
             case STARTER_MENU -> new StarterMenuState();
             case BUY_HOUSE_MENU -> new HouseMenuState();
             case ACTIONS_MENU -> new ActionMenuState();
+            case SIM_MENU -> new SimMenuState();
         };
     }
 }

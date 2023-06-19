@@ -23,17 +23,39 @@ public class Messages {
 
     /** MENU */
 
+    /* ------------------------------ BASE -------------------------------------------*/
+
     public static final String SEPARATOR = "---------------------------------------";
 
     public static final String MENU_OPTION = "%d -> %s\n";
 
     public static final String EXIT_COMMAND = "Exit";
 
-    public static final String ENTER_GAME_COMMAND = "Check yourself";
+    public static final String BACK_COMMAND = "Back";
+
+
+    /* ------------------------------ STARTER MENU -------------------------------------------*/
+
+    public static final String START_GAME_COMMAND = "Start game";
+
+    /* ------------------------------ SIM MENU -------------------------------------------*/
+
+    public static final String ACTIONS_COMMAND = "Go to actions";
+
+    public static final String NEEDS_COMMAND = "Show info of needs";
+
+    public static final String SKILLS_COMMAND = "Show info of skills";
+
+
+    public static final String FINANCIAL_PERSONAL_COMMAND = "Show info of financial and personal status";
+
+    public static final String CAREER_COMMAND = "Show info of career";
+
+
+    /* ------------------------------ SHOP MENU -------------------------------------------*/
 
     public static final String BUY_HOUSE_COMMAND = "Buy a house";
 
-    public static final String BACK_COMMAND = "Back";
 
     private Messages () {}
 }
