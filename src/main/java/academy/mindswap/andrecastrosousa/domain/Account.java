@@ -21,4 +21,10 @@ public class Account {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "Account: " + id + "\n" +
+                "balance: " + balance + "€";
+    }
 }

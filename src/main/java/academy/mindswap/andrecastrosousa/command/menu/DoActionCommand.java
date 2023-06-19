@@ -3,22 +3,20 @@ package academy.mindswap.andrecastrosousa.command.menu;
 import academy.mindswap.andrecastrosousa.command.action.ActionCommand;
 import academy.mindswap.andrecastrosousa.command.action.ActionInvoker;
 import academy.mindswap.andrecastrosousa.domain.Character;
-import academy.mindswap.andrecastrosousa.template.NeedStatus;
+import academy.mindswap.andrecastrosousa.domain.Division;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.domain.House;
-
-import java.util.List;
 
 public class DoActionCommand implements Command {
     private final Character character;
 
-    private final ActionCommand actionCommand;
+    private final Division division;
 
     private final ActionInvoker commandInvoker;
 
-    public DoActionCommand(Character character, ActionCommand actionCommand) {
+    public DoActionCommand(Character character, Division division) {
         this.character = character;
-        this.actionCommand = actionCommand;
+        this.division = division;
         commandInvoker = new ActionInvoker();
     }
 
@@ -28,12 +26,12 @@ public class DoActionCommand implements Command {
 
         house.increaseDirtyLevel();
 
-        commandInvoker.setActionCommand(actionCommand);
-        List<NeedStatus> needsUpdated = commandInvoker.invoke();
+        ActionCommand command = division.getAction();
+        command.setCharacter(character);
 
-        character.setNeeds(needsUpdated);
+        commandInvoker.setActionCommand(command);
+        commandInvoker.invoke(division);
 
         System.out.println(character.getNeeds());
-        System.out.println(house.toString());
     }
 }

@@ -27,8 +27,6 @@ public class ActionMenu extends MenuBase {
                 .map(Object::toString)
                 .toList();
 
-        System.out.println(options.size());
-
         MenuTerminal menuTerminal = new MenuTerminal.MenuTerminalBuilder()
                 .setOptions(options)
                 .hasBackButton()
@@ -55,7 +53,7 @@ public class ActionMenu extends MenuBase {
         if(selectedOption == actions.size()) {
             return new BackCommand();
         } else if(selectedOption >= 0 && selectedOption < actions.size()) {
-            return new DoActionCommand(character, actions.get(selectedOption));
+            return new DoActionCommand(character, character.getHouse().getDivisions().get(selectedOption));
         } else {
             throw new UnknownCommandException();
         }

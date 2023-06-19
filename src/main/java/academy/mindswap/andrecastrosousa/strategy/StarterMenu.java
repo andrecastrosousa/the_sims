@@ -1,11 +1,9 @@
 package academy.mindswap.andrecastrosousa.strategy;
 
-import academy.mindswap.andrecastrosousa.DB.Database;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.factory.MenuCommandsFactory;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.command.menu.CommandInvoker;
-import academy.mindswap.andrecastrosousa.command.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
 import academy.mindswap.andrecastrosousa.domain.Character;
 import academy.mindswap.andrecastrosousa.command.menu.Command;

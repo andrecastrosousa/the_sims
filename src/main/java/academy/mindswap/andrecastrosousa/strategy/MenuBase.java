@@ -1,17 +1,12 @@
 package academy.mindswap.andrecastrosousa.strategy;
 
-import academy.mindswap.andrecastrosousa.DB.Database;
-import academy.mindswap.andrecastrosousa.command.action.ActionCommand;
 import academy.mindswap.andrecastrosousa.domain.Character;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
 import academy.mindswap.andrecastrosousa.command.menu.CommandInvoker;
-import academy.mindswap.andrecastrosousa.command.menu.DoActionCommand;
-import academy.mindswap.andrecastrosousa.command.navigate.BackCommand;
 
 import java.io.IOException;
-import java.util.List;
 
 public abstract class MenuBase implements Menu {
     protected final CommandInvoker commandInvoker;

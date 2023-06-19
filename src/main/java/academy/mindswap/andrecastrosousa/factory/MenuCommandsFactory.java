@@ -34,7 +34,7 @@ public abstract class MenuCommandsFactory {
             case ACTIONS -> new GoToActionCommand();
             case NEEDS -> new OpenNeedsCommand(character.getNeeds());
             case SKILLS -> new OpenSkillsCommand();
-            case FINANCIAL_PERSONAL -> new OpenFinancialPersonalCommand();
+            case FINANCIAL -> new OpenFinancialCommand(character.getAccount());
             case CAREER -> new OpenCarrerCommand();
             case UNKNOWN -> throw new UnknownCommandException();
         };

@@ -68,10 +68,21 @@ public class Character {
                 .toList());
 
         commands.addAll(ActionType.getActionsWithoutDivisions().stream()
-                .map(a -> a.getAction(needs))
+                .map(ActionType::getAction)
                 .toList()
         );
 
         return commands;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void goTo(Division division) {
+        for(NeedStatus needStatus: needs) {
+            int staminaCost = division.getAction().getType().getStaminaCost(needStatus);
+            needStatus.update(staminaCost);
+        }
     }
 }

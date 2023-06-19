@@ -5,7 +5,7 @@ import academy.mindswap.andrecastrosousa.command.action.ActionCommand;
 
 public class Division {
     private final String name;
-    private final ActionCommand action;
+    private final Action action;
     private final double exp;
     private final int staminaMultiplier;
 

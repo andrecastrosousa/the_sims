@@ -1,32 +1,30 @@
 package academy.mindswap.andrecastrosousa.command.action;
 
-import academy.mindswap.andrecastrosousa.template.NeedStatus;
-
-import java.util.List;
+import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Division;
 
 public abstract class Action implements ActionCommand {
 
     protected final ActionType type;
 
-    protected final List<NeedStatus> needs;
+    protected Character character;
 
-    public Action(ActionType type, List<NeedStatus> needs) {
+    public Action(ActionType type) {
         this.type = type;
-        this.needs = needs;
     };
 
     @Override
-    public List<NeedStatus> perform() {
-        for(NeedStatus needStatus: needs) {
-            int staminaCost = type.getStaminaCost(needStatus);
-            needStatus.update(staminaCost);
-        }
-
-        return needs;
+    public void perform(Division division) {
+        character.goTo(division);
     }
 
     @Override
     public ActionType getType() {
         return type;
+    }
+
+    @Override
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 }

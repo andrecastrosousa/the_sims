@@ -1,8 +1,6 @@
 package academy.mindswap.andrecastrosousa.command.action;
 
-import academy.mindswap.andrecastrosousa.template.NeedStatus;
-
-import java.util.List;
+import academy.mindswap.andrecastrosousa.domain.Division;
 
 public class ActionInvoker {
 
@@ -12,7 +10,7 @@ public class ActionInvoker {
         this.actionCommand = actionCommand;
     }
 
-    public List<NeedStatus> invoke() {
-        return actionCommand.perform();
+    public void invoke(Division division) {
+        actionCommand.perform(division);
     }
 }

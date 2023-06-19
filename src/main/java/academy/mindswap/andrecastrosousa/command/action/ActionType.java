@@ -41,15 +41,15 @@ public enum ActionType {
         };
     }
 
-    public ActionCommand getAction(List<NeedStatus> needs) {
+    public ActionCommand getAction() {
         return switch (this) {
-            case EAT -> new EatAction(needs);
-            case SLEEP -> new SleepAction(needs);
-            case PAINT -> new PaintAction(needs);
-            case WORK -> new WorkAction(needs);
-            case COOK -> new CookAction(needs);
-            case PEE -> new PeeAction(needs);
-            case WATCH_TV -> new PaintAction(needs);
+            case EAT -> new EatAction();
+            case SLEEP -> new SleepAction();
+            case PAINT -> new PaintAction();
+            case WORK -> new WorkAction();
+            case COOK -> new CookAction();
+            case PEE -> new PeeAction();
+            case WATCH_TV -> new PaintAction();
         };
     }
 

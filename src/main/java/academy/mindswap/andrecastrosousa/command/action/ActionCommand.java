@@ -1,11 +1,12 @@
 package academy.mindswap.andrecastrosousa.command.action;
 
-import academy.mindswap.andrecastrosousa.template.NeedStatus;
-
-import java.util.List;
+import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Division;
 
 public interface ActionCommand {
-    List<NeedStatus> perform();
+    void perform(Division division);
 
     ActionType getType();
+
+    void setCharacter(Character character);
 }

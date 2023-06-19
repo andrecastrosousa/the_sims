@@ -25,8 +25,6 @@ public class Messages {
 
     /* ------------------------------ BASE -------------------------------------------*/
 
-    public static final String SEPARATOR = "---------------------------------------";
-
     public static final String MENU_OPTION = "%d -> %s\n";
 
     public static final String EXIT_COMMAND = "Exit";
@@ -46,8 +44,7 @@ public class Messages {
 
     public static final String SKILLS_COMMAND = "Show info of skills";
 
-
-    public static final String FINANCIAL_PERSONAL_COMMAND = "Show info of financial and personal status";
+    public static final String FINANCIAL_COMMAND = "Show info of financials";
 
     public static final String CAREER_COMMAND = "Show info of career";
 
@@ -59,6 +56,8 @@ public class Messages {
     /**
      * UI
      */
+
+    public static final String SEPARATOR = "---------------------------------------";
 
     public static final String PROGRESS_BAR = "▒";
 
