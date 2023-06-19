@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.action;
 
-import academy.mindswap.andrecastrosousa.action.strategy.ActionType;
+import academy.mindswap.andrecastrosousa.action.command.ActionType;
 
 public class Skill {
     private final String name;

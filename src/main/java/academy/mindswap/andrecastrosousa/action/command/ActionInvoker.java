@@ -1,4 +1,4 @@
-package academy.mindswap.andrecastrosousa.action.strategy;
+package academy.mindswap.andrecastrosousa.action.command;
 
 public class ActionInvoker {
 

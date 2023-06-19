@@ -1,7 +1,6 @@
-package academy.mindswap.andrecastrosousa.action.strategy;
+package academy.mindswap.andrecastrosousa.action.command;
 
 import academy.mindswap.andrecastrosousa.character.needs.NeedStatus;
-import academy.mindswap.andrecastrosousa.character.needs.NeedsType;
 
 public enum ActionType {
     EAT(-10, -5, 0, 100, -10),
