@@ -3,8 +3,10 @@ package academy.mindswap.andrecastrosousa.menu.strategy;
 import academy.mindswap.andrecastrosousa.DB.Database;
 import academy.mindswap.andrecastrosousa.action.command.ActionCommand;
 import academy.mindswap.andrecastrosousa.exceptions.*;
+import academy.mindswap.andrecastrosousa.house.House;
 import academy.mindswap.andrecastrosousa.menu.MenuType;
 import academy.mindswap.andrecastrosousa.menu.command.*;
+import academy.mindswap.andrecastrosousa.utils.MenuTerminal;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 import academy.mindswap.andrecastrosousa.character.Character;
 
@@ -28,16 +30,19 @@ public class HouseMenu implements Menu {
 
     @Override
     public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication {
-        System.out.println(Messages.SEPARATOR);
-        for (int i = 0; i < Database.houses.size(); i++) {
-            System.out.printf(Messages.MENU_OPTION, i, Database.houses.get(i));
-        }
-        System.out.printf(Messages.MENU_OPTION, Database.houses.size(), Messages.BACK_COMMAND);
-        System.out.println(Messages.SEPARATOR);
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        List<String> options = Database.houses.stream()
+                .map(House::toString)
+                .toList();
 
-        String message = reader.readLine();
+        MenuTerminal menuTerminal = new MenuTerminal.MenuTerminalBuilder()
+                .setOptions(options)
+                .hasBackButton()
+                .build();
+
+        menuTerminal.print();
+
+        String message = menuTerminal.selectOption();
 
 
         try {

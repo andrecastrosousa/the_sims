@@ -41,7 +41,6 @@ public class Game {
                 menuType = MenuType.BUY_HOUSE_MENU;
             } catch (BackApplication e) {
                 MenuState.buildMenuState(menuType).back();
-                throw new RuntimeException(e);
             }
         }
     }

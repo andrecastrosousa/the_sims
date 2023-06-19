@@ -12,6 +12,7 @@ import academy.mindswap.andrecastrosousa.menu.command.Command;
 import academy.mindswap.andrecastrosousa.menu.command.CommandInvoker;
 import academy.mindswap.andrecastrosousa.menu.command.DoActionCommand;
 import academy.mindswap.andrecastrosousa.menu.option.StarterMenuOption;
+import academy.mindswap.andrecastrosousa.utils.MenuTerminal;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 
 import java.io.BufferedReader;
@@ -33,30 +34,21 @@ public class ActionMenu implements Menu {
 
     @Override
     public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication {
-        System.out.println(Messages.SEPARATOR);
-        List<Division> divisions = character.getHouse().getDivisions();
+        List<String> options = character.getActions().stream()
+                .map(Object::toString)
+                .toList();
 
-        List<ActionCommand> commands = new java.util.ArrayList<>(divisions.stream()
-                .map(Division::getAction)
-                .toList());
+        MenuTerminal menuTerminal = new MenuTerminal.MenuTerminalBuilder()
+                .setOptions(options)
+                .hasBackButton()
+                .build();
 
-        commands.addAll(ActionType.getActionsWithoutDivisions().stream()
-                .map(a -> a.getAction(character.getNeeds()))
-                .toList()
-        );
+        menuTerminal.print();
 
-        for (int i = 0; i < commands.size(); i++) {
-            System.out.printf(Messages.MENU_OPTION, i, commands.get(i).toString());
-        }
-        System.out.printf(Messages.MENU_OPTION, commands.size(), Messages.BACK_COMMAND);
-        System.out.println(Messages.SEPARATOR);
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        String message = reader.readLine();
+        String message = menuTerminal.selectOption();
 
         try {
-            Command command = getValidCommand(message, character, commands);
+            Command command = getValidCommand(message, character, character.getActions());
             commandInvoker.setCommand(command);
         } catch (UnknownCommandException e) {
             handle(character);

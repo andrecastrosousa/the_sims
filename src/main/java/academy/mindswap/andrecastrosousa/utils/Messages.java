@@ -25,7 +25,7 @@ public class Messages {
 
     public static final String SEPARATOR = "---------------------------------------";
 
-    public static final String MENU_OPTION = "%d -> %s";
+    public static final String MENU_OPTION = "%d -> %s\n";
 
     public static final String EXIT_COMMAND = "Exit";
 

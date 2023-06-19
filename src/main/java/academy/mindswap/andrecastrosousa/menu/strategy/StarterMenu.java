@@ -3,6 +3,7 @@ package academy.mindswap.andrecastrosousa.menu.strategy;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.menu.MenuType;
 import academy.mindswap.andrecastrosousa.menu.command.CommandInvoker;
+import academy.mindswap.andrecastrosousa.utils.MenuTerminal;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.menu.command.Command;
@@ -11,6 +12,8 @@ import academy.mindswap.andrecastrosousa.menu.option.StarterMenuOption;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.List;
 
 public class StarterMenu implements Menu {
 
@@ -26,17 +29,18 @@ public class StarterMenu implements Menu {
 
     @Override
     public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication {
-        System.out.println(Messages.SEPARATOR);
-        for (StarterMenuOption starterMenu: StarterMenuOption.values()) {
-            System.out.println(starterMenu.getOption() + " -> " + starterMenu.getMessage());
-        }
-        System.out.println(Messages.SEPARATOR);
+        List<String> options = Arrays.stream(StarterMenuOption.values())
+                .filter(o -> o != StarterMenuOption.UNKNOWN)
+                .map(StarterMenuOption::getMessage)
+                .toList();
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        MenuTerminal menuTerminal = new MenuTerminal.MenuTerminalBuilder()
+                .setOptions(options)
+                .build();
 
-        String message = reader.readLine();
+        menuTerminal.print();
 
-        Command command = null;
+        String message = menuTerminal.selectOption();
 
         try {
             commandInvoker.setCommand(StarterMenuOption.execute(Integer.parseInt(message), character));

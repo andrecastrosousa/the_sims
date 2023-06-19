@@ -1,8 +1,11 @@
 package academy.mindswap.andrecastrosousa.character;
 
 import academy.mindswap.andrecastrosousa.DB.Database;
+import academy.mindswap.andrecastrosousa.action.command.ActionCommand;
+import academy.mindswap.andrecastrosousa.action.command.ActionType;
 import academy.mindswap.andrecastrosousa.bank.Account;
 import academy.mindswap.andrecastrosousa.character.needs.*;
+import academy.mindswap.andrecastrosousa.house.Division;
 import academy.mindswap.andrecastrosousa.house.House;
 
 import java.util.List;
@@ -60,5 +63,18 @@ public class Character {
 
     public List<NeedStatus> getNeeds() {
         return needs;
+    }
+
+    public List<ActionCommand> getActions (){
+        List<ActionCommand> commands = new java.util.ArrayList<>(house.getDivisions().stream()
+                .map(Division::getAction)
+                .toList());
+
+        commands.addAll(ActionType.getActionsWithoutDivisions().stream()
+                .map(a -> a.getAction(needs))
+                .toList()
+        );
+
+        return commands;
     }
 }
