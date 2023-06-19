@@ -1,6 +1,5 @@
 package academy.mindswap.andrecastrosousa.menu.command;
 
-import academy.mindswap.andrecastrosousa.action.Action;
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
 import academy.mindswap.andrecastrosousa.game.Game;
@@ -26,11 +25,11 @@ public class BuyHouseCommand implements Command {
         }
         character.setHouse(house);
 
-        List<Action> actions = house.getDivisions().stream()
+        /*List<Action> actions = house.getDivisions().stream()
                 .map(d -> new Action(d.getType()))
                 .distinct()
                 .toList();
-        character.setActions(actions);
+        character.setActions(actions);*/
 
         Game.setTerminalInteraction(TerminalInteraction.ACTIONS_MENU);
     }

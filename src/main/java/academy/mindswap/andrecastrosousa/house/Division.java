@@ -6,7 +6,6 @@ public class Division {
     private final String name;
     private final ActionType type;
     private final double exp;
-
     private final int staminaCost;
 
     public Division(String name, ActionType type, double exp, int staminaCost) {

@@ -1,6 +1,5 @@
 package academy.mindswap.andrecastrosousa.DB;
 
-import academy.mindswap.andrecastrosousa.action.Action;
 import academy.mindswap.andrecastrosousa.action.ActionType;
 import academy.mindswap.andrecastrosousa.house.Division;
 import academy.mindswap.andrecastrosousa.house.House;
@@ -10,7 +9,7 @@ import java.util.List;
 
 public class Database {
 
-    public static List<Action> actions = new ArrayList<>(List.of(
+    /*public static List<Action> actions = new ArrayList<>(List.of(
             new Action(ActionType.COOK),
             new Action(ActionType.PAINT),
             new Action(ActionType.EAT),
@@ -18,7 +17,7 @@ public class Database {
             new Action(ActionType.SLEEP),
             new Action(ActionType.WORK),
             new Action(ActionType.WATCH_TV)
-    ));
+    ));*/
 
     public static List<House> houses = new ArrayList<>(List.of(
        new House(new ArrayList<>(List.of(

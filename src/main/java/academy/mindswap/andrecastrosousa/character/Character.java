@@ -1,9 +1,10 @@
 package academy.mindswap.andrecastrosousa.character;
 
-import academy.mindswap.andrecastrosousa.action.Action;
 import academy.mindswap.andrecastrosousa.bank.Account;
+import academy.mindswap.andrecastrosousa.character.needs.*;
 import academy.mindswap.andrecastrosousa.house.House;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Character {
@@ -15,7 +16,17 @@ public class Character {
 
     private House house;
 
-    private List<Action> actions;
+    private final List<NeedStatus> actions;
+
+    public Character() {
+        actions = new ArrayList<>(List.of(
+                new BladderStatusImpl(),
+                new EnergyStatusImpl(),
+                new FunStatusImpl(),
+                new HungerStatusImpl(),
+                new HygieneStatusImpl()
+        ));
+    }
 
     public Gender getGender() {
         return gender;
@@ -49,11 +60,14 @@ public class Character {
         return account.getBalance();
     }
 
-    public void setActions(List<Action> actions) {
-        this.actions = actions;
+    public void setNeeds(List<NeedStatus> needs) {
+        List<NeedStatus> filteredActions = actions.stream()
+                .filter(a -> !this.actions.contains(a))
+                .toList();
+        this.actions.addAll(filteredActions);
     }
 
-    public List<Action> getActions() {
+    public List<NeedStatus> getNeeds() {
         return actions;
     }
 }
