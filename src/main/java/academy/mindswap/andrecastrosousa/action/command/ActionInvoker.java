@@ -12,7 +12,7 @@ public class ActionInvoker {
         this.actionCommand = actionCommand;
     }
 
-    public void invoke(List<NeedStatus> needs) {
-        actionCommand.perform(needs);
+    public List<NeedStatus> invoke() {
+        return actionCommand.perform();
     }
 }

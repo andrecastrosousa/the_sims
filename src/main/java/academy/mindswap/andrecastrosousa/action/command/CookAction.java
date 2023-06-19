@@ -5,7 +5,7 @@ import academy.mindswap.andrecastrosousa.character.needs.NeedStatus;
 import java.util.List;
 
 public class CookAction extends Action {
-    public CookAction() {
-        super(ActionType.COOK);
+    public CookAction(List<NeedStatus> needs) {
+        super(ActionType.COOK, needs);
     }
 }

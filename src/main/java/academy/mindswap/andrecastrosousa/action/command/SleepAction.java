@@ -5,7 +5,7 @@ import academy.mindswap.andrecastrosousa.character.needs.NeedStatus;
 import java.util.List;
 
 public class SleepAction extends Action {
-    public SleepAction() {
-        super(ActionType.SLEEP);
+    public SleepAction(List<NeedStatus> needs) {
+        super(ActionType.SLEEP, needs);
     }
 }

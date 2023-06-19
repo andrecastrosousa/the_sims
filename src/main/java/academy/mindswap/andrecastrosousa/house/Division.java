@@ -1,10 +1,11 @@
 package academy.mindswap.andrecastrosousa.house;
 
 import academy.mindswap.andrecastrosousa.action.command.Action;
+import academy.mindswap.andrecastrosousa.action.command.ActionCommand;
 
 public class Division {
     private final String name;
-    private final Action action;
+    private final ActionCommand action;
     private final double exp;
     private final int staminaMultiplier;
 
@@ -27,7 +28,7 @@ public class Division {
         return staminaMultiplier;
     }
 
-    public Action getAction() {
+    public ActionCommand getAction() {
         return action;
     }
 

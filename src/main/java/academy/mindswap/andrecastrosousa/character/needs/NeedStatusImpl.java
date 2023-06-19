@@ -1,10 +1,5 @@
 package academy.mindswap.andrecastrosousa.character.needs;
 
-/**
- * Design Pattern: Observer
- *
- * Subscriber
- */
 public abstract class NeedStatusImpl implements NeedStatus {
 
     protected int stamina;
