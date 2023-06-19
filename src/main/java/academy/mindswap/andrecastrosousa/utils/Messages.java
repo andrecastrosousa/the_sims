@@ -56,6 +56,12 @@ public class Messages {
 
     public static final String BUY_HOUSE_COMMAND = "Buy a house";
 
+    /**
+     * UI
+     */
+
+    public static final String PROGRESS_BAR = "▒";
+
 
     private Messages () {}
 }

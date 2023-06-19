@@ -1,4 +1,4 @@
-package academy.mindswap.andrecastrosousa.state.needs;
+package academy.mindswap.andrecastrosousa.template;
 
 public abstract class NeedStatusImpl implements NeedStatus {
 

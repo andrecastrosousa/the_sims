@@ -32,7 +32,7 @@ public abstract class MenuCommandsFactory {
 
         return switch (starterMenuOption) {
             case ACTIONS -> new GoToActionCommand();
-            case NEEDS -> new OpenNeedsCommand();
+            case NEEDS -> new OpenNeedsCommand(character.getNeeds());
             case SKILLS -> new OpenSkillsCommand();
             case FINANCIAL_PERSONAL -> new OpenFinancialPersonalCommand();
             case CAREER -> new OpenCarrerCommand();

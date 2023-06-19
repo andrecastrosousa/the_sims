@@ -5,7 +5,7 @@ import academy.mindswap.andrecastrosousa.command.action.PeeAction;
 import academy.mindswap.andrecastrosousa.command.action.SleepAction;
 import academy.mindswap.andrecastrosousa.domain.Division;
 import academy.mindswap.andrecastrosousa.domain.House;
-import academy.mindswap.andrecastrosousa.state.needs.*;
+import academy.mindswap.andrecastrosousa.template.*;
 
 import java.util.ArrayList;
 import java.util.List;

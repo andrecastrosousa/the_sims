@@ -3,7 +3,7 @@ package academy.mindswap.andrecastrosousa.command.menu;
 import academy.mindswap.andrecastrosousa.command.action.ActionCommand;
 import academy.mindswap.andrecastrosousa.command.action.ActionInvoker;
 import academy.mindswap.andrecastrosousa.domain.Character;
-import academy.mindswap.andrecastrosousa.state.needs.NeedStatus;
+import academy.mindswap.andrecastrosousa.template.NeedStatus;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.domain.House;
 

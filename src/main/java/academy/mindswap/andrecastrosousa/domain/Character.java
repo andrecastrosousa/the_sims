@@ -3,7 +3,7 @@ package academy.mindswap.andrecastrosousa.domain;
 import academy.mindswap.andrecastrosousa.DB.Database;
 import academy.mindswap.andrecastrosousa.command.action.ActionCommand;
 import academy.mindswap.andrecastrosousa.command.action.ActionType;
-import academy.mindswap.andrecastrosousa.state.needs.NeedStatus;
+import academy.mindswap.andrecastrosousa.template.NeedStatus;
 
 import java.util.List;
 

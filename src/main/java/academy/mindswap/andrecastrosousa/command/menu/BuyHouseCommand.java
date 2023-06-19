@@ -7,8 +7,8 @@ import academy.mindswap.andrecastrosousa.domain.House;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 
 public class BuyHouseCommand implements Command {
-    private Character character;
-    private House house;
+    private final Character character;
+    private final House house;
 
 
     public BuyHouseCommand(Character character, House house) {
