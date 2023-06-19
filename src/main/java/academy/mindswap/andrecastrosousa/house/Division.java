@@ -1,41 +1,42 @@
 package academy.mindswap.andrecastrosousa.house;
 
+import academy.mindswap.andrecastrosousa.action.command.Action;
 import academy.mindswap.andrecastrosousa.action.command.ActionType;
 
 public class Division {
     private final String name;
-    private final ActionType type;
+    private final Action action;
     private final double exp;
-    private final int staminaCost;
+    private final int staminaMultiplier;
 
-    public Division(String name, ActionType type, double exp, int staminaCost) {
+    public Division(String name, Action action, double exp, int staminaMultiplier) {
         this.name = name;
-        this.type = type;
+        this.action = action;
         this.exp = exp;
-        this.staminaCost = staminaCost;
+        this.staminaMultiplier = staminaMultiplier;
     }
 
     public String getName() {
         return name;
     }
 
-    public ActionType getType() {
-        return type;
-    }
-
     public double getExp() {
         return exp;
     }
 
-    public int getStaminaCost() {
-        return staminaCost;
+    public int getStaminaMultiplier() {
+        return staminaMultiplier;
+    }
+
+    public Action getAction() {
+        return action;
     }
 
     @Override
     public String toString() {
         return "Division{" +
                 "name='" + name + '\'' +
-                ", type=" + type +
+                ", action=" + action +
                 ", exp=" + exp +
                 '}';
     }
