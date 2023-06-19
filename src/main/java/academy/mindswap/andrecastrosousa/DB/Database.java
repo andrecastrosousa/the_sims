@@ -1,6 +1,5 @@
 package academy.mindswap.andrecastrosousa.DB;
 
-import academy.mindswap.andrecastrosousa.action.command.ActionType;
 import academy.mindswap.andrecastrosousa.action.command.CookAction;
 import academy.mindswap.andrecastrosousa.action.command.PeeAction;
 import academy.mindswap.andrecastrosousa.action.command.SleepAction;
@@ -13,22 +12,12 @@ import java.util.List;
 
 public class Database {
 
-    /*public static List<Action> actions = new ArrayList<>(List.of(
-            new Action(ActionType.COOK),
-            new Action(ActionType.PAINT),
-            new Action(ActionType.EAT),
-            new Action(ActionType.PEE),
-            new Action(ActionType.SLEEP),
-            new Action(ActionType.WORK),
-            new Action(ActionType.WATCH_TV)
-    ));*/
-
     public static List<NeedStatus> needs = new ArrayList<>(List.of(
-            new BladderStatusImpl(),
-            new EnergyStatusImpl(),
-            new FunStatusImpl(),
-            new HungerStatusImpl(),
-            new HygieneStatusImpl()
+            new BladderStatus(),
+            new EnergyStatus(),
+            new FunStatus(),
+            new HungerStatus(),
+            new HygieneStatus()
     ));
 
     public static List<House> houses = new ArrayList<>(List.of(

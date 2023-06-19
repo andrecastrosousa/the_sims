@@ -21,7 +21,8 @@ public class DoActionCommand implements Command {
 
         house.increaseDirtyLevel();
 
-        // action.increaseStamina(division.getStaminaCost());
+        division.performAction();
+
         System.out.println(character.getNeeds());
         System.out.println(house.toString());
     }

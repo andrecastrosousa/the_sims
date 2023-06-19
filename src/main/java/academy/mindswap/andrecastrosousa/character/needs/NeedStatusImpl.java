@@ -5,10 +5,10 @@ package academy.mindswap.andrecastrosousa.character.needs;
  *
  * Subscriber
  */
-public abstract class NeedStatusImpl implements NeedStatus {
+public class NeedStatusImpl implements NeedStatus {
 
-    private int stamina;
-    private final NeedsType type;
+    protected int stamina;
+    protected final NeedsType type;
 
     public NeedStatusImpl(NeedsType type) {
         stamina = 100;
@@ -30,5 +30,13 @@ public abstract class NeedStatusImpl implements NeedStatus {
     @Override
     public NeedsType getType() {
         return type;
+    }
+
+    @Override
+    public String toString() {
+        return "NeedStatusImpl{" +
+                "stamina=" + stamina +
+                ", type=" + type +
+                '}';
     }
 }

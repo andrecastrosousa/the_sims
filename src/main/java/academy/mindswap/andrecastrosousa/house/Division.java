@@ -1,7 +1,6 @@
 package academy.mindswap.andrecastrosousa.house;
 
 import academy.mindswap.andrecastrosousa.action.command.Action;
-import academy.mindswap.andrecastrosousa.action.command.ActionType;
 
 public class Division {
     private final String name;
@@ -28,8 +27,8 @@ public class Division {
         return staminaMultiplier;
     }
 
-    public Action getAction() {
-        return action;
+    public void performAction() {
+        action.perform();
     }
 
     @Override
