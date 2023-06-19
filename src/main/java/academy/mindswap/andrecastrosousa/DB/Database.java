@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.DB;
 
-import academy.mindswap.andrecastrosousa.action.ActionType;
+import academy.mindswap.andrecastrosousa.action.strategy.ActionType;
 import academy.mindswap.andrecastrosousa.house.Division;
 import academy.mindswap.andrecastrosousa.house.House;
 

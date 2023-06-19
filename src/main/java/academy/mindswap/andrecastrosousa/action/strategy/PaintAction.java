@@ -1,13 +1,11 @@
 package academy.mindswap.andrecastrosousa.action.strategy;
 
-import academy.mindswap.andrecastrosousa.action.ActionType;
+import academy.mindswap.andrecastrosousa.character.needs.NeedStatus;
 
-public class PaintAction implements ActionCommand {
+import java.util.List;
 
-    private final ActionType type = ActionType.PAINT;
-
-    @Override
-    public void perform() {
-
+public class PaintAction extends Action {
+    public PaintAction(List<NeedStatus> needs) {
+        super(needs, ActionType.PAINT);
     }
 }

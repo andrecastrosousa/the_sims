@@ -1,14 +1,11 @@
 package academy.mindswap.andrecastrosousa.action.strategy;
 
-import academy.mindswap.andrecastrosousa.action.ActionType;
+import academy.mindswap.andrecastrosousa.character.needs.NeedStatus;
 
-public class WorkAction implements ActionCommand {
+import java.util.List;
 
-    private final ActionType type = ActionType.WORK;
-
-
-    @Override
-    public void perform() {
-
+public class WorkAction extends Action {
+    public WorkAction(List<NeedStatus> needs) {
+        super(needs, ActionType.WORK);
     }
 }

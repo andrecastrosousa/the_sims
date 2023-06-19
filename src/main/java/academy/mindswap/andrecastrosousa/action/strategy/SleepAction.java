@@ -1,14 +1,11 @@
 package academy.mindswap.andrecastrosousa.action.strategy;
 
-import academy.mindswap.andrecastrosousa.action.ActionType;
+import academy.mindswap.andrecastrosousa.character.needs.NeedStatus;
 
-public class SleepAction implements ActionCommand {
+import java.util.List;
 
-    private final ActionType type = ActionType.SLEEP;
-
-
-    @Override
-    public void perform() {
-
+public class SleepAction extends Action {
+    public SleepAction(List<NeedStatus> needs) {
+        super(needs, ActionType.SLEEP);
     }
 }

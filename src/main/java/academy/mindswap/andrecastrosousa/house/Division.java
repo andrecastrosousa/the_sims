@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.house;
 
-import academy.mindswap.andrecastrosousa.action.ActionType;
+import academy.mindswap.andrecastrosousa.action.strategy.ActionType;
 
 public class Division {
     private final String name;

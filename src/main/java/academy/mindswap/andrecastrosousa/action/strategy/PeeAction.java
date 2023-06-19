@@ -1,13 +1,11 @@
 package academy.mindswap.andrecastrosousa.action.strategy;
 
-import academy.mindswap.andrecastrosousa.action.ActionType;
+import academy.mindswap.andrecastrosousa.character.needs.NeedStatus;
 
-public class PeeAction implements ActionCommand {
+import java.util.List;
 
-    private final ActionType type = ActionType.PEE;
-
-    @Override
-    public void perform() {
-
+public class PeeAction extends Action {
+    public PeeAction(List<NeedStatus> needs) {
+        super(needs, ActionType.PEE);
     }
 }

@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.character.needs;
 
-public enum NeedsOption {
+public enum NeedsType {
     BLADDER,
     FUN,
     HYGIENE,
