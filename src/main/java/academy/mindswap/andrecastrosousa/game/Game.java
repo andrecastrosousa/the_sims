@@ -1,24 +1,22 @@
 package academy.mindswap.andrecastrosousa.game;
 
-import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
+import academy.mindswap.andrecastrosousa.exceptions.*;
+import academy.mindswap.andrecastrosousa.menu.state.MenuState;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 import academy.mindswap.andrecastrosousa.bank.Account;
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.character.Gender;
-import academy.mindswap.andrecastrosousa.exceptions.CharacterNoHouseException;
-import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;
-import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
 import academy.mindswap.andrecastrosousa.menu.strategy.MenuChecker;
-import academy.mindswap.andrecastrosousa.menu.TerminalInteraction;
+import academy.mindswap.andrecastrosousa.menu.MenuType;
 
 import java.io.IOException;
 
 public class Game {
 
-    private static TerminalInteraction terminalInteraction;
+    private static MenuType menuType;
 
     public Game() {
-        terminalInteraction = TerminalInteraction.STARTER_MENU;
+        menuType = MenuType.STARTER_MENU;
     }
 
     public void start() {
@@ -32,7 +30,7 @@ public class Game {
 
         while(true) {
             try {
-                menu.showMenu(terminalInteraction, character);
+                menu.showMenu(menuType, character);
             } catch (IOException | HouseTooDirtyException e) {
                 System.out.println(e.getMessage());
             } catch (ExitApplication e) {
@@ -40,12 +38,15 @@ public class Game {
             } catch (CharacterNoHouseException | NoFundsEnoughtException e) {
                 System.out.println(Messages.SEPARATOR);
                 System.out.println(e.getMessage() + "\n");
-                terminalInteraction = TerminalInteraction.BUY_HOUSE_MENU;
+                menuType = MenuType.BUY_HOUSE_MENU;
+            } catch (BackApplication e) {
+                MenuState.buildMenuState(menuType).back();
+                throw new RuntimeException(e);
             }
         }
     }
 
-    public static void setTerminalInteraction(TerminalInteraction terminalInteraction) {
-        Game.terminalInteraction = terminalInteraction;
+    public static void setMenuType(MenuType menuType) {
+        Game.menuType = menuType;
     }
 }

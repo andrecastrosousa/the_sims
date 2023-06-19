@@ -2,6 +2,8 @@ package academy.mindswap.andrecastrosousa.utils;
 
 public class Messages {
 
+    /** Exceptions*/
+
     public static final String CHARACTER_HAS_NO_HOUSE = "Character need an house before start the game.";
 
     public static final String CHARACTER_NO_ENERGY = "Character as no energy to perform action.";
@@ -16,7 +18,14 @@ public class Messages {
 
     public static final String NO_FUNDS_ENOUGH = "Character has no funds to buy.";
 
+    public static final String HOUSE_ALREADY_CLEAN = "House is clean.";
+
+
+    /** MENU */
+
     public static final String SEPARATOR = "---------------------------------------";
+
+    public static final String MENU_OPTION = "%d -> %s";
 
     public static final String EXIT_COMMAND = "Exit";
 
@@ -24,7 +33,7 @@ public class Messages {
 
     public static final String BUY_HOUSE_COMMAND = "Buy a house";
 
-    public static final String HOUSE_ALREADY_CLEAN = "House is without any dirty.";
+    public static final String BACK_COMMAND = "Back";
 
     private Messages () {}
 }

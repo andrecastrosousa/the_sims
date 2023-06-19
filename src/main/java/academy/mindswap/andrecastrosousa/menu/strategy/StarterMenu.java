@@ -1,15 +1,10 @@
 package academy.mindswap.andrecastrosousa.menu.strategy;
 
-import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
-import academy.mindswap.andrecastrosousa.house.House;
-import academy.mindswap.andrecastrosousa.menu.TerminalInteraction;
+import academy.mindswap.andrecastrosousa.exceptions.*;
+import academy.mindswap.andrecastrosousa.menu.MenuType;
 import academy.mindswap.andrecastrosousa.menu.command.CommandInvoker;
-import academy.mindswap.andrecastrosousa.menu.strategy.MenuStrategy;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 import academy.mindswap.andrecastrosousa.character.Character;
-import academy.mindswap.andrecastrosousa.exceptions.CharacterNoHouseException;
-import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;
-import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
 import academy.mindswap.andrecastrosousa.menu.command.Command;
 import academy.mindswap.andrecastrosousa.menu.option.StarterMenuOption;
 
@@ -17,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class StarterMenu implements MenuStrategy {
+public class StarterMenu implements Menu {
 
     CommandInvoker commandInvoker;
 
@@ -25,12 +20,12 @@ public class StarterMenu implements MenuStrategy {
         this.commandInvoker = commandInvoker;
     }
     @Override
-    public boolean canHandle(TerminalInteraction menuFlow) {
-        return menuFlow == TerminalInteraction.STARTER_MENU;
+    public boolean canHandle(MenuType menuFlow) {
+        return menuFlow == MenuType.STARTER_MENU;
     }
 
     @Override
-    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException {
+    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication {
         System.out.println(Messages.SEPARATOR);
         for (StarterMenuOption starterMenu: StarterMenuOption.values()) {
             System.out.println(starterMenu.getOption() + " -> " + starterMenu.getMessage());
@@ -41,9 +36,14 @@ public class StarterMenu implements MenuStrategy {
 
         String message = reader.readLine();
 
-        Command command = StarterMenuOption.execute(Integer.parseInt(message), character);
-        commandInvoker.setCommand(command);
-        commandInvoker.invoke();
+        Command command = null;
 
+        try {
+            commandInvoker.setCommand(StarterMenuOption.execute(Integer.parseInt(message), character));
+        } catch (UnknownCommandException e) {
+            handle(character);
+        }
+
+        commandInvoker.invoke();
     }
 }
