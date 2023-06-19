@@ -16,7 +16,7 @@ public class Character {
 
     private House house;
 
-    private final List<NeedStatus> needs;
+    private List<NeedStatus> needs;
 
     public Character() {
         needs = Database.needs;
@@ -55,10 +55,7 @@ public class Character {
     }
 
     public void setNeeds(List<NeedStatus> needs) {
-        List<NeedStatus> filteredActions = needs.stream()
-                .filter(a -> !this.needs.contains(a))
-                .toList();
-        this.needs.addAll(filteredActions);
+        this.needs = needs;
     }
 
     public List<NeedStatus> getNeeds() {

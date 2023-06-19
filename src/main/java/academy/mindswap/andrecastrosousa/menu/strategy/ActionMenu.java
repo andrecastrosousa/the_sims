@@ -44,7 +44,7 @@ public class ActionMenu implements MenuStrategy {
 
         String message = reader.readLine();
 
-        commandInvoker.setCommand(new DoActionCommand(character, divisions.get(Integer.parseInt(message))));
+        commandInvoker.setCommand(new DoActionCommand(character, divisions.get(Integer.parseInt(message) - 1)));
         commandInvoker.invoke();
     }
 }

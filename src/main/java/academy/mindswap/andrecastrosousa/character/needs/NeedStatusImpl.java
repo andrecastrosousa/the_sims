@@ -5,7 +5,7 @@ package academy.mindswap.andrecastrosousa.character.needs;
  *
  * Subscriber
  */
-public class NeedStatusImpl implements NeedStatus {
+public abstract class NeedStatusImpl implements NeedStatus {
 
     protected int stamina;
     protected final NeedsType type;

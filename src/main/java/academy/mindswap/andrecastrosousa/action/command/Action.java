@@ -11,32 +11,20 @@ import java.util.List;
  */
 public abstract class Action implements ActionCommand {
 
-    protected final List<NeedStatus> needs;
     protected final ActionType type;
 
-    public Action(List<NeedStatus> needs, ActionType type) {
-        this.needs = needs;
+    public Action(ActionType type) {
         this.type = type;
     };
-
-    public void attach(NeedStatus needStatus) {
-        needs.add(needStatus);
-    }
-
-    public void detach(NeedStatus needStatus) {
-        needs.remove(needStatus);
-    }
-
-    private void notifyNeeds() {
+    
+    @Override
+    public List<NeedStatus> perform(List<NeedStatus> needs) {
         for(NeedStatus needStatus: needs) {
             int staminaCost = type.getStaminaCost(needStatus);
             needStatus.update(staminaCost);
         }
-    }
 
-    @Override
-    public void perform() {
-        notifyNeeds();
+        return needs;
     }
 
     @Override

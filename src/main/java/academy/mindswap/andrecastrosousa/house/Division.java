@@ -27,8 +27,8 @@ public class Division {
         return staminaMultiplier;
     }
 
-    public void performAction() {
-        action.perform();
+    public Action getAction() {
+        return action;
     }
 
     @Override

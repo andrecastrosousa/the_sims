@@ -1,5 +1,8 @@
 package academy.mindswap.andrecastrosousa.menu.command;
 
+import academy.mindswap.andrecastrosousa.action.command.Action;
+import academy.mindswap.andrecastrosousa.action.command.ActionCommand;
+import academy.mindswap.andrecastrosousa.action.command.ActionInvoker;
 import academy.mindswap.andrecastrosousa.character.Character;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.house.Division;
@@ -21,7 +24,9 @@ public class DoActionCommand implements Command {
 
         house.increaseDirtyLevel();
 
-        division.performAction();
+        ActionInvoker commandInvoker = new ActionInvoker();
+        commandInvoker.setActionCommand(division.getAction());
+        commandInvoker.invoke(character.getNeeds());
 
         System.out.println(character.getNeeds());
         System.out.println(house.toString());
