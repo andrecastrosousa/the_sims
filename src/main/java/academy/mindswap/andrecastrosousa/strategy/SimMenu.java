@@ -6,7 +6,7 @@ import academy.mindswap.andrecastrosousa.factory.MenuCommandsFactory;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
 import academy.mindswap.andrecastrosousa.command.menu.CommandInvoker;
-import academy.mindswap.andrecastrosousa.command.navigate.BackCommand;
+import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.domain.enums.SimMenuOption;
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
 

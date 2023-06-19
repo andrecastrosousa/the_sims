@@ -36,7 +36,7 @@ public class Messages {
 
     public static final String START_GAME_COMMAND = "Start game";
 
-    /* ------------------------------ SIM MENU -------------------------------------------*/
+    /* ------------------------------ SIM MENU -----------------------------------------------*/
 
     public static final String ACTIONS_COMMAND = "Go to actions";
 
@@ -48,16 +48,19 @@ public class Messages {
 
     public static final String CAREER_COMMAND = "Show info of career";
 
+    public static final String CALL_HOUSEKEEPER_COMMAND = "Call housekeeper";
 
-    /* ------------------------------ SHOP MENU -------------------------------------------*/
+    /** ------------------------------ GO TO MENU ---------------------------------------------*/
+
+    public static final String GO_TO_COMMAND = "Go To %s to perform %s";
+
+    /* ------------------------------ SHOP MENU -----------------------------------------------*/
 
     public static final String BUY_HOUSE_COMMAND = "Buy a house";
 
-    /**
-     * UI
-     */
+    /** UI */
 
-    public static final String SEPARATOR = "---------------------------------------";
+    public static final String SEPARATOR = "-----------------------------------------------";
 
     public static final String PROGRESS_BAR = "▒";
 

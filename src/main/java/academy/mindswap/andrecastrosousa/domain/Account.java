@@ -1,5 +1,7 @@
 package academy.mindswap.andrecastrosousa.domain;
 
+import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
+
 public class Account {
     private double balance;
 
@@ -16,6 +18,13 @@ public class Account {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public void pay(double amount) throws NoFundsEnoughtException {
+        if(balance - amount < 0) {
+            throw new NoFundsEnoughtException();
+        }
+        balance -= amount;
     }
 
     public int getId() {

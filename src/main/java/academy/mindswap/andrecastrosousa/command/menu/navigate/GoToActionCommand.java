@@ -1,12 +1,13 @@
-package academy.mindswap.andrecastrosousa.command.navigate;
+package academy.mindswap.andrecastrosousa.command.menu.navigate;
 
 import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
 
-public class GoToBuyHouseCommand implements Command {
+public class GoToActionCommand implements Command {
+
     @Override
     public void execute() {
-        Game.setMenuType(MenuType.BUY_HOUSE_MENU);
+        Game.setMenuType(MenuType.ACTIONS_MENU);
     }
 }

@@ -11,6 +11,7 @@ public enum SimMenuOption {
     SKILLS(3, Messages.SKILLS_COMMAND),
     FINANCIAL(4, Messages.FINANCIAL_COMMAND),
     CAREER(5, Messages.CAREER_COMMAND),
+    CALL_HOUSEKEEPER(6, Messages.CALL_HOUSEKEEPER_COMMAND),
     UNKNOWN;
 
     private int option;

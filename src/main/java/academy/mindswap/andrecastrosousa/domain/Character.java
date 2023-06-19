@@ -3,6 +3,7 @@ package academy.mindswap.andrecastrosousa.domain;
 import academy.mindswap.andrecastrosousa.DB.Database;
 import academy.mindswap.andrecastrosousa.command.action.ActionCommand;
 import academy.mindswap.andrecastrosousa.command.action.ActionType;
+import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
 import academy.mindswap.andrecastrosousa.template.NeedStatus;
 
 import java.util.List;
@@ -84,5 +85,9 @@ public class Character {
             int staminaCost = division.getAction().getType().getStaminaCost(needStatus);
             needStatus.update(staminaCost);
         }
+    }
+
+    public void pay(int amount) throws NoFundsEnoughtException {
+        account.pay(amount);
     }
 }

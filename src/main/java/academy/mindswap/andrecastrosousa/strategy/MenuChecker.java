@@ -24,7 +24,8 @@ public class MenuChecker {
                 new StarterMenu(commandInvoker),
                 new HouseMenu(commandInvoker),
                 new ActionMenu(commandInvoker),
-                new SimMenu(commandInvoker)
+                new SimMenu(commandInvoker),
+                new HousekeeperMenu(commandInvoker)
         ));
     }
 

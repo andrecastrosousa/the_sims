@@ -28,7 +28,7 @@ public class Game {
         while(true) {
             try {
                 menu.showMenu(menuType, character);
-            } catch (IOException | HouseTooDirtyException e) {
+            } catch (IOException e) {
                 System.out.println(e.getMessage());
             } catch (ExitApplication e) {
                 System.exit(0);
@@ -38,6 +38,12 @@ public class Game {
                 menuType = MenuType.BUY_HOUSE_MENU;
             } catch (BackApplication e) {
                 MenuState.buildMenuState(menuType).back();
+            } catch (HouseTooDirtyException e) {
+                System.out.println(Messages.SEPARATOR);
+                System.out.println(e.getMessage());
+                System.out.println(Messages.SEPARATOR+ "\n");
+
+                menuType = MenuType.HOUSEKEEPER_MENU;
             }
         }
     }

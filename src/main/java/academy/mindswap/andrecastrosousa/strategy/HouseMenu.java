@@ -7,7 +7,7 @@ import academy.mindswap.andrecastrosousa.command.menu.CommandInvoker;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.domain.House;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
-import academy.mindswap.andrecastrosousa.command.navigate.BackCommand;
+import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
 import academy.mindswap.andrecastrosousa.domain.Character;
 
@@ -34,7 +34,6 @@ public class HouseMenu extends MenuBase {
         menuTerminal.print();
 
         String message = menuTerminal.selectOption();
-
 
         try {
             Command command = getValidCommand(message, character);
