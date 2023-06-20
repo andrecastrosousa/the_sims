@@ -7,6 +7,7 @@ import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderExceptio
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
+import academy.mindswap.andrecastrosousa.strategy.needs.NeedStaminaChecker;
 import academy.mindswap.andrecastrosousa.template.NeedStatus;
 import academy.mindswap.andrecastrosousa.template.NeedsType;
 
@@ -85,23 +86,9 @@ public class Character {
     }
 
     public void goTo(Division division) throws CharacterFullBladderException, HouseTooDirtyException, CharacterNoEnergyException {
-        NeedStatus peeStatus = needs.stream()
-                .filter(n -> n.getType() == NeedsType.BLADDER)
-                .findFirst()
-                .orElse(null);
 
-        if(peeStatus != null && peeStatus.getStamina() == 0 && division.getAction().getType() != ActionType.PEE) {
-            throw new CharacterFullBladderException();
-        }
-
-        NeedStatus energyStatus = needs.stream()
-                .filter(n -> n.getType() == NeedsType.ENERGY)
-                .findFirst()
-                .orElse(null);
-
-        if(energyStatus != null && energyStatus.getStamina() == 0 && division.getAction().getType() != ActionType.SLEEP) {
-            throw new CharacterNoEnergyException();
-        }
+        NeedStaminaChecker checker = new NeedStaminaChecker(needs);
+        checker.checkStamina(division.getAction().getType());
 
         house.increaseDirtyLevel();
 
