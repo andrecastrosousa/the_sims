@@ -1,21 +1,19 @@
-package academy.mindswap.andrecastrosousa.template;
+package academy.mindswap.andrecastrosousa.template.need;
 
 import academy.mindswap.andrecastrosousa.utils.Messages;
 
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class HungerStatus extends NeedStatusImpl {
-
-    public HungerStatus() {
-        super(NeedsType.HUNGER);
+public class FunStatus extends NeedStatusImpl {
+    public FunStatus() {
+        super(NeedsType.FUN);
     }
 
     @Override
     public String toString() {
         int progress = stamina / 10;
 
-        return "Hunger: " +
+        return "Fun: " +
                 Stream.generate(() -> Messages.PROGRESS_BAR)
                         .limit(progress)
                         .reduce("", (acc, next) -> acc + next) +

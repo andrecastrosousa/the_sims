@@ -11,7 +11,7 @@ public abstract class DirtyState implements Dirty {
 
     protected House house;
 
-    public static DirtyState buildState(House house) {
+    public static Dirty buildState(House house) {
         return switch (house.getDirtyLevel()) {
             case CLEAN -> new Clean(house);
             case SLIGHTLY_DIRTY -> new SlightlyDirty(house);

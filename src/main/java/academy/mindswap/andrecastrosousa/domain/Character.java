@@ -1,15 +1,14 @@
 package academy.mindswap.andrecastrosousa.domain;
 
 import academy.mindswap.andrecastrosousa.DB.Database;
-import academy.mindswap.andrecastrosousa.command.action.ActionCommand;
-import academy.mindswap.andrecastrosousa.command.action.ActionType;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderException;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
+import academy.mindswap.andrecastrosousa.factory.skill.SkillFactoryImpl;
 import academy.mindswap.andrecastrosousa.strategy.needs.NeedStaminaChecker;
-import academy.mindswap.andrecastrosousa.template.NeedStatus;
-import academy.mindswap.andrecastrosousa.template.NeedsType;
+import academy.mindswap.andrecastrosousa.template.need.NeedStatus;
+import academy.mindswap.andrecastrosousa.template.skill.Skill;
 
 import java.util.List;
 
@@ -24,8 +23,11 @@ public class Character {
 
     private List<NeedStatus> needs;
 
+    private final List<Skill> skills;
+
     public Character() {
         needs = Database.needs;
+        skills = SkillFactoryImpl.createBaseSkills();
     }
 
     public Gender getGender() {
@@ -70,6 +72,10 @@ public class Character {
 
     public Account getAccount() {
         return account;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
     }
 
     public void goTo(Division division) throws CharacterFullBladderException, HouseTooDirtyException, CharacterNoEnergyException {

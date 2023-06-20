@@ -29,8 +29,6 @@ public abstract class MenuCommandsFactory {
     public static Command fromSimMenu(int option, Character character) throws UnknownCommandException {
         SimMenuOption starterMenuOption = SimMenuOption.getEnumByOption(option);
 
-        System.out.println(starterMenuOption);
-
         return switch (starterMenuOption) {
             case ACTIONS -> new GoToActionCommand();
             case NEEDS -> new OpenNeedsCommand(character.getNeeds());

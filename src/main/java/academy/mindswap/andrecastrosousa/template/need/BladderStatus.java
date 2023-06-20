@@ -1,8 +1,7 @@
-package academy.mindswap.andrecastrosousa.template;
+package academy.mindswap.andrecastrosousa.template.need;
 
 import academy.mindswap.andrecastrosousa.utils.Messages;
 
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class BladderStatus extends NeedStatusImpl {

@@ -1,4 +1,4 @@
-package academy.mindswap.andrecastrosousa.template;
+package academy.mindswap.andrecastrosousa.template.need;
 
 public interface NeedStatus {
 

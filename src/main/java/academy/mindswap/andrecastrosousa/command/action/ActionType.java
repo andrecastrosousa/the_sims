@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.command.action;
 
-import academy.mindswap.andrecastrosousa.template.NeedStatus;
+import academy.mindswap.andrecastrosousa.template.need.NeedStatus;
 
 import java.util.ArrayList;
 import java.util.List;
