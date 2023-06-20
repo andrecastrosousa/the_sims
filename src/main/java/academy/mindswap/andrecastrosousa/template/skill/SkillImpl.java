@@ -43,4 +43,9 @@ public abstract class SkillImpl implements Skill {
 
     @Override
     public abstract String toString();
+
+    @Override
+    public SkillType getType() {
+        return type;
+    }
 }

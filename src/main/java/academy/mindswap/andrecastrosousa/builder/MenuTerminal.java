@@ -38,16 +38,16 @@ public class MenuTerminal {
         return reader.readLine();
     }
 
-    public static class MenuTerminalBuilder {
+    public static class Builder {
         private List<String> options;
         private boolean hasBackButton;
 
-        public MenuTerminalBuilder setOptions(List<String> options) {
+        public Builder setOptions(List<String> options) {
             this.options = options;
             return this;
         }
 
-        public MenuTerminalBuilder hasBackButton() {
+        public Builder hasBackButton() {
             this.hasBackButton = true;
             return this;
         }

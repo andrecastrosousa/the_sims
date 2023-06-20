@@ -21,7 +21,7 @@ public class SimMenu extends MenuBase {
 
     @Override
     public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
-        MenuTerminal menuTerminal = new MenuTerminal.MenuTerminalBuilder()
+        MenuTerminal menuTerminal = new MenuTerminal.Builder()
                 .setOptions(SimMenuOption.getMenuOptions())
                 .hasBackButton()
                 .build();

@@ -31,7 +31,7 @@ public class HousekeeperMenu extends MenuBase {
         System.out.println("|       1 -> yes            0 -> no           |");
         System.out.println(Messages.SEPARATOR);
 
-        MenuTerminal terminal = new MenuTerminal.MenuTerminalBuilder()
+        MenuTerminal terminal = new MenuTerminal.Builder()
                 .build();
 
         String message = terminal.selectOption();

@@ -27,7 +27,7 @@ public class HouseMenu extends MenuBase {
                 .map(House::toString)
                 .toList();
 
-        MenuTerminal menuTerminal = new MenuTerminal.MenuTerminalBuilder()
+        MenuTerminal menuTerminal = new MenuTerminal.Builder()
                 .setOptions(options)
                 .hasBackButton()
                 .build();

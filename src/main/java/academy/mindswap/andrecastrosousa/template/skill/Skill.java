@@ -10,4 +10,6 @@ public interface Skill {
     SkillLevel getLevel();
 
     int getExp();
+
+    SkillType getType();
 }

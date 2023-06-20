@@ -85,6 +85,15 @@ public class Character {
 
         house.increaseDirtyLevel();
 
+        Skill skill = skills.stream()
+                .filter(s -> s.getType() == division.getAction().getType().getSkillType())
+                .findFirst()
+                .orElse(null);
+
+        if(skill != null) {
+            skill.improve(30);
+        }
+
         for(NeedStatus needStatus: needs) {
             int staminaCost = division.getAction().getType().getStaminaCost(needStatus);
             needStatus.update(staminaCost);

@@ -1,6 +1,8 @@
 package academy.mindswap.andrecastrosousa.command.action;
 
 import academy.mindswap.andrecastrosousa.template.need.NeedStatus;
+import academy.mindswap.andrecastrosousa.template.skill.Skill;
+import academy.mindswap.andrecastrosousa.template.skill.SkillType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +13,11 @@ import java.util.List;
 public enum ActionType {
     EAT(-100, -5, 0, 100, -10),
     SLEEP(-20, 100, 0, -25, -20),
-    COOK(-5, -20, 5, -20, -20),
-    WORK(-10, -70, 10, -40, -30),
+    COOK(-5, -20, 5, -20, -20, SkillType.COOKING),
+    WORK(-10, -70, 10, -40, -30, SkillType.LOGIC),
     WATCH_TV(-5, -25, 25, -20, -15),
     PEE(100, -2, 0, -2, -5),
-    PAINT(-10, -25, 30, -10, -15);
+    PAINT(-10, -25, 30, -10, -15, SkillType.PAINT);
 
     private final int bladderStamina;
     private final int energyStamina;
@@ -23,12 +25,24 @@ public enum ActionType {
     private final int hungerStamina;
     private final int hygieneStamina;
 
+    private final SkillType skillType;
+
+    ActionType(int bladderStamina, int energyStamina, int funStamina, int hungerStamina, int hygieneStamina, SkillType skillType) {
+        this.bladderStamina =bladderStamina;
+        this.energyStamina = energyStamina;
+        this.funStamina = funStamina;
+        this.hungerStamina = hungerStamina;
+        this.hygieneStamina = hygieneStamina;
+        this.skillType = skillType;
+    }
+
     ActionType(int bladderStamina, int energyStamina, int funStamina, int hungerStamina, int hygieneStamina) {
         this.bladderStamina =bladderStamina;
         this.energyStamina = energyStamina;
         this.funStamina = funStamina;
         this.hungerStamina = hungerStamina;
         this.hygieneStamina = hygieneStamina;
+        this.skillType = null;
     }
 
     public int getStaminaCost(NeedStatus needStatus) {
@@ -53,7 +67,7 @@ public enum ActionType {
         };
     }
 
-    public static List<ActionType> getActionsWithoutDivisions() {
-        return new ArrayList<>(List.of(WORK));
+    public SkillType getSkillType() {
+        return skillType;
     }
 }

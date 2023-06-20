@@ -28,7 +28,7 @@ public class ActionMenu extends MenuBase {
 
         System.out.println("Level of cleanness: " + character.getHouse().getDirtyLevel());
 
-        MenuTerminal menuTerminal = new MenuTerminal.MenuTerminalBuilder()
+        MenuTerminal menuTerminal = new MenuTerminal.Builder()
                 .setOptions(options)
                 .hasBackButton()
                 .build();
