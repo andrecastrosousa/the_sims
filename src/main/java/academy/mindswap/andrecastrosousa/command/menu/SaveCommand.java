@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.command.menu;
 
-import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 
 import java.io.*;
@@ -9,10 +9,10 @@ import java.time.ZoneOffset;
 
 public class SaveCommand implements Command {
 
-    private final Character character;
+    private final Sim sim;
 
-    public SaveCommand(Character character) {
-        this.character = character;
+    public SaveCommand(Sim sim) {
+        this.sim = sim;
     }
 
     @Override
@@ -26,7 +26,7 @@ public class SaveCommand implements Command {
 
         try(FileOutputStream fileOut = new FileOutputStream(file);
                 ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-            objectOut.writeObject(character);
+            objectOut.writeObject(sim);
             objectOut.close();
             System.out.println("The Object  was succesfully written to a file");
 

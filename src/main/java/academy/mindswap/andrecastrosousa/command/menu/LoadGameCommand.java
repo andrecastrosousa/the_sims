@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.command.menu;
 
-import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 
 import java.io.FileInputStream;
@@ -22,9 +22,9 @@ public class LoadGameCommand implements Command {
              ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
 
             // Read the object from the file
-            Character characterJson = (Character) objectIn.readObject();
+            Sim simJson = (Sim) objectIn.readObject();
 
-            System.out.println(characterJson);
+            System.out.println(simJson);
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

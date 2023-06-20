@@ -3,9 +3,8 @@ package academy.mindswap.andrecastrosousa.strategy.menu;
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
 import academy.mindswap.andrecastrosousa.command.menu.CallHousekeeperCommand;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
-import academy.mindswap.andrecastrosousa.command.menu.CommandInvoker;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
-import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.exceptions.*;
@@ -22,7 +21,7 @@ public class HousekeeperMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle(Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
 
         System.out.println(Messages.HOUSEKEEPER_MESSAGE);
 
@@ -37,17 +36,17 @@ public class HousekeeperMenu extends MenuBase {
             String secondMessage = terminal.selectOption();
             System.out.println(Messages.SEPARATOR + "\n");
 
-            Command command = getValidCommand(message + " " + secondMessage, character);
+            Command command = getValidCommand(message + " " + secondMessage, sim);
             commandInvoker.setCommand(command);
         } catch (UnknownCommandException e) {
-            handle(character);
+            handle(sim);
         }
 
         commandInvoker.invoke();
     }
 
     @Override
-    protected Command getValidCommand(String message, Character character) throws UnknownCommandException {
+    protected Command getValidCommand(String message, Sim sim) throws UnknownCommandException {
         List<Integer> valuesInserted = Arrays.stream(message.split("[ ]+")).map(Integer::parseInt).toList();
 
         int selectedOption = valuesInserted.get(0);
@@ -55,7 +54,7 @@ public class HousekeeperMenu extends MenuBase {
         if(selectedOption < 0 || selectedOption > 1) {
             throw new UnknownCommandException();
         } else if(selectedOption == 1) {
-            return new CallHousekeeperCommand(character, character.getHouse(), valuesInserted.get(1));
+            return new CallHousekeeperCommand(sim, sim.getHouse(), valuesInserted.get(1));
         }
 
         return new BackCommand();

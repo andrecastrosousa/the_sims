@@ -2,22 +2,21 @@ package academy.mindswap.andrecastrosousa.command.menu;
 
 import academy.mindswap.andrecastrosousa.command.action.ActionCommand;
 import academy.mindswap.andrecastrosousa.command.action.ActionInvoker;
-import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.Division;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderException;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
-import academy.mindswap.andrecastrosousa.domain.House;
 
 public class DoActionCommand implements Command {
-    private final Character character;
+    private final Sim sim;
 
     private final Division division;
 
     private final ActionInvoker commandInvoker;
 
-    public DoActionCommand(Character character, Division division) {
-        this.character = character;
+    public DoActionCommand(Sim sim, Division division) {
+        this.sim = sim;
         this.division = division;
         commandInvoker = new ActionInvoker();
     }
@@ -25,11 +24,11 @@ public class DoActionCommand implements Command {
     @Override
     public void execute() throws HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException {
         ActionCommand command = division.getAction();
-        command.setCharacter(character);
+        command.setCharacter(sim);
 
         commandInvoker.setActionCommand(command);
         commandInvoker.invoke(division);
 
-        System.out.println(character.getNeeds());
+        System.out.println(sim.getNeeds());
     }
 }

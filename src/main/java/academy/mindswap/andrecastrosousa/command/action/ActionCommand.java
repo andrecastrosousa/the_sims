@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.command.action;
 
-import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.Division;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderException;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
@@ -13,5 +13,5 @@ public interface ActionCommand extends Serializable {
 
     ActionType getType();
 
-    void setCharacter(Character character);
+    void setCharacter(Sim sim);
 }

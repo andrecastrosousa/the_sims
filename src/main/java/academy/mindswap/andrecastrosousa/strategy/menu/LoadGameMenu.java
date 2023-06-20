@@ -4,17 +4,14 @@ import academy.mindswap.andrecastrosousa.DB.Database;
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
 import academy.mindswap.andrecastrosousa.command.menu.BuyHouseCommand;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
-import academy.mindswap.andrecastrosousa.command.menu.CommandInvoker;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
-import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
-import academy.mindswap.andrecastrosousa.domain.enums.SimMenuOption;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.singleton.LoadGameSystem;
 
 import java.io.IOException;
-import java.util.List;
 
 public class LoadGameMenu extends MenuBase {
     public LoadGameMenu() {
@@ -22,7 +19,7 @@ public class LoadGameMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle(Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
         LoadGameSystem loadGameMenu = LoadGameSystem.getInstance();
 
         MenuTerminal menuTerminal = new MenuTerminal.Builder()
@@ -35,16 +32,16 @@ public class LoadGameMenu extends MenuBase {
         String message = menuTerminal.selectOption();
 
         try {
-            commandInvoker.setCommand(getValidCommand(message, character));
+            commandInvoker.setCommand(getValidCommand(message, sim));
         } catch (UnknownCommandException e) {
-            handle(character);
+            handle(sim);
         }
 
         commandInvoker.invoke();
     }
 
     @Override
-    protected Command getValidCommand(String message, Character character) throws UnknownCommandException {
+    protected Command getValidCommand(String message, Sim sim) throws UnknownCommandException {
         LoadGameSystem loadGameMenu = LoadGameSystem.getInstance();
 
         int selectedOption = Integer.parseInt(message);
@@ -52,7 +49,7 @@ public class LoadGameMenu extends MenuBase {
         if(selectedOption == loadGameMenu.getLoadGameOptions().size()) {
             return new BackCommand();
         } else if(selectedOption >= 0 && selectedOption < loadGameMenu.getLoadGameOptions().size()) {
-            return new BuyHouseCommand(character, Database.houses.get(selectedOption));
+            return new BuyHouseCommand(sim, Database.houses.get(selectedOption));
         } else {
             throw new UnknownCommandException();
         }

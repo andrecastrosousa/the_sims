@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.strategy.menu;
 
-import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
@@ -35,9 +35,9 @@ public abstract class MenuBase implements Menu {
     }
 
     @Override
-    public abstract void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException;
+    public abstract void handle(Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException;
 
-    protected abstract Command getValidCommand(String message, Character character) throws UnknownCommandException;
+    protected abstract Command getValidCommand(String message, Sim sim) throws UnknownCommandException;
 
     @Override
     public abstract void back();

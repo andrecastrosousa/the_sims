@@ -1,6 +1,6 @@
 package academy.mindswap.andrecastrosousa.command.menu;
 
-import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.domain.House;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
@@ -12,17 +12,17 @@ public class CallHousekeeperCommand implements Command {
 
     private final House house;
     private final int hour;
-    private final Character character;
+    private final Sim sim;
 
-    public CallHousekeeperCommand(Character character, House house, int hour) {
+    public CallHousekeeperCommand(Sim sim, House house, int hour) {
         this.house = house;
         this.hour = hour;
-        this.character = character;
+        this.sim = sim;
     }
 
     @Override
     public void execute() throws NoFundsEnoughtException, CharacterNoHouseException, ExitApplication, HouseTooDirtyException, BackApplication {
-        if(character.getBalance() - (10 * hour) < 0) {
+        if(sim.getBalance() - (10 * hour) < 0) {
             throw new NoFundsEnoughtException();
         }
 
@@ -33,7 +33,7 @@ public class CallHousekeeperCommand implements Command {
             }
         });
 
-        character.pay(10 * hour);
+        sim.pay(10 * hour);
         Game.setMenuType(MenuType.SIM_MENU);
     }
 }

@@ -1,12 +1,11 @@
 package academy.mindswap.andrecastrosousa.strategy.menu;
 
-import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.factory.MenuCommandsFactory;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
-import academy.mindswap.andrecastrosousa.command.menu.CommandInvoker;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.domain.enums.SimMenuOption;
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
@@ -20,7 +19,7 @@ public class SimMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle(Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
         MenuTerminal menuTerminal = new MenuTerminal.Builder()
                 .setOptions(SimMenuOption.getMenuOptions())
                 .hasBackButton()
@@ -31,22 +30,22 @@ public class SimMenu extends MenuBase {
         String message = menuTerminal.selectOption();
 
         try {
-            commandInvoker.setCommand(getValidCommand(message, character));
+            commandInvoker.setCommand(getValidCommand(message, sim));
         } catch (UnknownCommandException e) {
-            handle(character);
+            handle(sim);
         }
 
         commandInvoker.invoke();
     }
 
     @Override
-    protected Command getValidCommand(String message, Character character) throws UnknownCommandException {
+    protected Command getValidCommand(String message, Sim sim) throws UnknownCommandException {
         int selectedOption = Integer.parseInt(message);
 
         if(selectedOption == SimMenuOption.values().length) {
             return new BackCommand();
         } else if(selectedOption >= 0 && selectedOption < SimMenuOption.values().length - 1) {
-            return MenuCommandsFactory.fromSimMenu(Integer.parseInt(message) + 1, character);
+            return MenuCommandsFactory.fromSimMenu(Integer.parseInt(message) + 1, sim);
         } else {
             throw new UnknownCommandException();
         }

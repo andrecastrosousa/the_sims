@@ -13,7 +13,7 @@ import academy.mindswap.andrecastrosousa.template.skill.Skill;
 import java.io.Serializable;
 import java.util.List;
 
-public class Character implements Serializable {
+public class Sim implements Serializable {
     private String name;
 
     private Gender gender;
@@ -26,7 +26,16 @@ public class Character implements Serializable {
 
     private final List<Skill> skills;
 
-    public Character() {
+    public Sim(String name, Gender gender, Account account, House house) {
+        this.name = name;
+        this.gender = gender;
+        this.account = account;
+        this.house = house;
+        needs = Database.needs;
+        skills = SkillFactoryImpl.createBaseSkills();
+    }
+
+    public Sim() {
         needs = Database.needs;
         skills = SkillFactoryImpl.createBaseSkills();
     }

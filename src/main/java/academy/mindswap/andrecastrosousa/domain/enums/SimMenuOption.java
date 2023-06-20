@@ -12,7 +12,7 @@ public enum SimMenuOption {
     FINANCIAL(4, Messages.FINANCIAL_COMMAND),
     CAREER(5, Messages.CAREER_COMMAND),
     CALL_HOUSEKEEPER(6, Messages.CALL_HOUSEKEEPER_COMMAND),
-    SAVE_GAME(7, "SAVE GAME"),
+    SAVE_GAME(7, "Save game"),
     UNKNOWN;
 
     private int option;

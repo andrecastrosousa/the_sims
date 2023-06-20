@@ -1,5 +1,6 @@
 package academy.mindswap.andrecastrosousa.domain;
 
+import academy.mindswap.andrecastrosousa.builder.SimBuilder;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.strategy.menu.MenuBase;
 import academy.mindswap.andrecastrosousa.utils.Messages;
@@ -12,22 +13,25 @@ public class Game {
 
     private static MenuType menuType;
 
+    private static Sim sim;
+
     public Game() {
         menuType = MenuType.STARTER_MENU;
     }
 
     public void start() {
-        Character character = new Character();
 
-        character.setName("André");
-        character.setGender(Gender.MALE);
-        character.setAccount(new Account(1, 1000000));
+        sim = new SimBuilder()
+                .setName("")
+                .setAccount(new Account(1, 1000000))
+                .setGender(Gender.MALE)
+                .build();
 
         MenuChecker menu = new MenuChecker();
 
         while(true) {
             try {
-                menu.showMenu(menuType, character);
+                menu.showMenu(menuType, sim);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             } catch (ExitApplication e) {
@@ -54,5 +58,13 @@ public class Game {
 
     public static void setMenuType(MenuType menuType) {
         Game.menuType = menuType;
+    }
+
+    public static Sim getSim() {
+        return sim;
+    }
+
+    public static void setSim(Sim sim) {
+        Game.sim = sim;
     }
 }

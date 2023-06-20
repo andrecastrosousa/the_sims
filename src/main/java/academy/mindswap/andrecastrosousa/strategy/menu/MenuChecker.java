@@ -1,9 +1,8 @@
 package academy.mindswap.andrecastrosousa.strategy.menu;
 
-import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
-import academy.mindswap.andrecastrosousa.command.menu.CommandInvoker;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,10 +27,10 @@ public class MenuChecker {
         ));
     }
 
-    public void showMenu(MenuType interaction, Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void showMenu(MenuType interaction, Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
         for (Menu menu : menus) {
             if(menu.canHandle(interaction)) {
-                menu.handle(character);
+                menu.handle(sim);
             }
         }
     }

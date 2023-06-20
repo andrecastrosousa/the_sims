@@ -1,18 +1,16 @@
 package academy.mindswap.andrecastrosousa.command.action;
 
-import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.Division;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderException;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 
-import java.io.Serializable;
-
 public abstract class Action implements ActionCommand {
 
     protected final ActionType type;
 
-    protected Character character;
+    protected Sim sim;
 
     public Action(ActionType type) {
         this.type = type;
@@ -20,7 +18,7 @@ public abstract class Action implements ActionCommand {
 
     @Override
     public void perform(Division division) throws CharacterFullBladderException, HouseTooDirtyException, CharacterNoEnergyException {
-        character.goTo(division);
+        sim.goTo(division);
     }
 
     @Override
@@ -29,7 +27,7 @@ public abstract class Action implements ActionCommand {
     }
 
     @Override
-    public void setCharacter(Character character) {
-        this.character = character;
+    public void setCharacter(Sim sim) {
+        this.sim = sim;
     }
 }
