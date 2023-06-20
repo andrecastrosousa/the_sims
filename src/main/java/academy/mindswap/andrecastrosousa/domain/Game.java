@@ -1,7 +1,7 @@
 package academy.mindswap.andrecastrosousa.domain;
 
 import academy.mindswap.andrecastrosousa.exceptions.*;
-import academy.mindswap.andrecastrosousa.state.menu.MenuState;
+import academy.mindswap.andrecastrosousa.strategy.menu.MenuBase;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 import academy.mindswap.andrecastrosousa.strategy.menu.MenuChecker;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
@@ -37,7 +37,7 @@ public class Game {
                 System.out.println(e.getMessage() + "\n");
                 menuType = MenuType.BUY_HOUSE_MENU;
             } catch (BackApplication e) {
-                MenuState.buildMenuState(menuType).back();
+                MenuBase.buildMenuState(menuType).back();
             } catch (HouseTooDirtyException e) {
                 System.out.println(Messages.SEPARATOR);
                 System.out.println(e.getMessage());

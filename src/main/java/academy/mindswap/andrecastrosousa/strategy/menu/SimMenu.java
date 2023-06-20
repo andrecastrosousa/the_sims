@@ -1,6 +1,7 @@
 package academy.mindswap.andrecastrosousa.strategy.menu;
 
 import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.factory.MenuCommandsFactory;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
@@ -49,5 +50,10 @@ public class SimMenu extends MenuBase {
         } else {
             throw new UnknownCommandException();
         }
+    }
+
+    @Override
+    public void back() {
+        Game.setMenuType(MenuType.STARTER_MENU);
     }
 }

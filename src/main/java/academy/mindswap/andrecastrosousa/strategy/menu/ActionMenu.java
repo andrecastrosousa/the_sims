@@ -3,6 +3,7 @@ package academy.mindswap.andrecastrosousa.strategy.menu;
 import academy.mindswap.andrecastrosousa.command.menu.DoActionCommand;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
@@ -57,5 +58,10 @@ public class ActionMenu extends MenuBase {
         } else {
             throw new UnknownCommandException();
         }
+    }
+
+    @Override
+    public void back() {
+        Game.setMenuType(MenuType.SIM_MENU);
     }
 }

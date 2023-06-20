@@ -18,6 +18,16 @@ public abstract class MenuBase implements Menu {
         this.type = type;
     }
 
+    public static Menu buildMenuState(MenuType menuType) {
+        return switch (menuType) {
+            case STARTER_MENU -> new StarterMenu(new CommandInvoker());
+            case BUY_HOUSE_MENU -> new HouseMenu(new CommandInvoker());
+            case ACTIONS_MENU -> new ActionMenu(new CommandInvoker());
+            case SIM_MENU -> new SimMenu(new CommandInvoker());
+            case HOUSEKEEPER_MENU -> new HousekeeperMenu(new CommandInvoker());
+        };
+    }
+
     @Override
     public boolean canHandle(MenuType type) {
         return this.type == type;
@@ -27,4 +37,7 @@ public abstract class MenuBase implements Menu {
     public abstract void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException;
 
     protected abstract Command getValidCommand(String message, Character character) throws UnknownCommandException;
+
+    @Override
+    public void back(){}
 }

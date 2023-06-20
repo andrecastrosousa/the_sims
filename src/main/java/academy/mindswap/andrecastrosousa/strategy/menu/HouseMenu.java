@@ -4,6 +4,7 @@ import academy.mindswap.andrecastrosousa.DB.Database;
 import academy.mindswap.andrecastrosousa.command.menu.BuyHouseCommand;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
 import academy.mindswap.andrecastrosousa.command.menu.CommandInvoker;
+import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.domain.House;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
@@ -56,5 +57,10 @@ public class HouseMenu extends MenuBase {
         } else {
             throw new UnknownCommandException();
         }
+    }
+
+    @Override
+    public void back() {
+        Game.setMenuType(MenuType.STARTER_MENU);
     }
 }
