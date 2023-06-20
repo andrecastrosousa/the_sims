@@ -39,5 +39,5 @@ public abstract class MenuBase implements Menu {
     protected abstract Command getValidCommand(String message, Character character) throws UnknownCommandException;
 
     @Override
-    public void back(){}
+    public abstract void back();
 }

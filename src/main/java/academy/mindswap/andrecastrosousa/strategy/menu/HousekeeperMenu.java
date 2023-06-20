@@ -6,6 +6,7 @@ import academy.mindswap.andrecastrosousa.command.menu.Command;
 import academy.mindswap.andrecastrosousa.command.menu.CommandInvoker;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.domain.Character;
+import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.utils.Messages;
@@ -63,5 +64,10 @@ public class HousekeeperMenu extends MenuBase {
         }
 
         return new BackCommand();
+    }
+
+    @Override
+    public void back() {
+        Game.setMenuType(MenuType.SIM_MENU);
     }
 }

@@ -10,8 +10,6 @@ import java.util.List;
 
 public abstract class SkillFactoryImpl implements SkillFactory {
 
-    private SkillFactoryImpl() {}
-
     @Override
     public abstract Skill createSkill();
 

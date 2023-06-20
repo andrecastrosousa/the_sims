@@ -5,9 +5,17 @@ import academy.mindswap.andrecastrosousa.state.skill.SkillLevelState;
 
 public abstract class SkillImpl implements Skill {
 
-    private SkillLevel level;
+    protected SkillLevel level;
 
-    private int currentExp;
+    protected int currentExp;
+
+    protected SkillType type;
+
+    public SkillImpl(SkillType type) {
+        level = SkillLevel.LEVEL_1;
+        currentExp = 0;
+        this.type = type;
+    }
 
     @Override
     public void improve(int exp) {
@@ -27,4 +35,12 @@ public abstract class SkillImpl implements Skill {
     public SkillLevel getLevel() {
         return level;
     }
+
+    @Override
+    public int getExp() {
+        return currentExp;
+    }
+
+    @Override
+    public abstract String toString();
 }

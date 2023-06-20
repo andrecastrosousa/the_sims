@@ -8,4 +8,6 @@ public interface Skill {
     void levelUp(SkillLevel level);
 
     SkillLevel getLevel();
+
+    int getExp();
 }

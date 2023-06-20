@@ -45,4 +45,9 @@ public class StarterMenu extends MenuBase {
         }
         return MenuCommandsFactory.fromStarterMenu(Integer.parseInt(message), character);
     }
+
+    @Override
+    public void back() {
+
+    }
 }
