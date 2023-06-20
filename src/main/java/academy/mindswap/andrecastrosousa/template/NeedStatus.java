@@ -5,4 +5,6 @@ public interface NeedStatus {
     void update(int stamina);
 
     NeedsType getType();
+
+    int getStamina();
 }

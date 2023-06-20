@@ -24,7 +24,7 @@ public abstract class MenuBase implements Menu {
     }
 
     @Override
-    public abstract void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication;
+    public abstract void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException;
 
     protected abstract Command getValidCommand(String message, Character character) throws UnknownCommandException;
 }

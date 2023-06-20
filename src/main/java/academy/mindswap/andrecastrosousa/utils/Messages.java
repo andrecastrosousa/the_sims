@@ -20,6 +20,7 @@ public class Messages {
 
     public static final String HOUSE_ALREADY_CLEAN = "House is clean.";
 
+    public static final String BLADDER_FULL = "Character has full bladder. Go to bathroom before perform an action";
 
     /** MENU */
 

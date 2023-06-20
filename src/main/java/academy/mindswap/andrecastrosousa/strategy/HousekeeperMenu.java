@@ -21,11 +21,12 @@ public class HousekeeperMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication {
+    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
         System.out.println(Messages.SEPARATOR);
         System.out.println("|    Do you want to call housekeeper?         |");
         System.out.println("|            10€ per hour                     |");
         System.out.println("|         1 hour per dirty level              |");
+        System.out.println("|                                             |");
         System.out.println("|       1 -> yes            0 -> no           |");
         System.out.println(Messages.SEPARATOR);
 
@@ -39,6 +40,7 @@ public class HousekeeperMenu extends MenuBase {
             System.out.println("Insert how many hours you want hire housekeeper:");
             String secondMessage = terminal.selectOption();
             System.out.println(Messages.SEPARATOR + "\n");
+
             Command command = getValidCommand(message + " " + secondMessage, character);
             commandInvoker.setCommand(command);
         } catch (UnknownCommandException e) {

@@ -29,7 +29,7 @@ public class MenuChecker {
         ));
     }
 
-    public void showMenu(MenuType interaction, Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication {
+    public void showMenu(MenuType interaction, Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
         for (Menu menu : menus) {
             if(menu.canHandle(interaction)) {
                 menu.handle(character);

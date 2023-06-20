@@ -20,7 +20,7 @@ public class ActionMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication {
+    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
         List<String> options = character.getHouse().getDivisions().stream()
                 .map(d -> String.format(Messages.GO_TO_COMMAND, d.getName(), d.getAction().toString()))
                 .toList();

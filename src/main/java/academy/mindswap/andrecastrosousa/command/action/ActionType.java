@@ -9,7 +9,7 @@ import java.util.List;
  * Design pattern: Abstract Factory
  */
 public enum ActionType {
-    EAT(-10, -5, 0, 100, -10),
+    EAT(-100, -5, 0, 100, -10),
     SLEEP(-20, 100, 0, -25, -20),
     COOK(-5, -20, 5, -20, -20),
     WORK(-10, -70, 10, -40, -30),

@@ -1,6 +1,9 @@
 package academy.mindswap.andrecastrosousa.command.action;
 
 import academy.mindswap.andrecastrosousa.domain.Division;
+import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderException;
+import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
+import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 
 public class ActionInvoker {
 
@@ -10,7 +13,7 @@ public class ActionInvoker {
         this.actionCommand = actionCommand;
     }
 
-    public void invoke(Division division) {
+    public void invoke(Division division) throws CharacterFullBladderException, HouseTooDirtyException, CharacterNoEnergyException {
         actionCommand.perform(division);
     }
 }

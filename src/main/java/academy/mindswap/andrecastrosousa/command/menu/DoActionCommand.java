@@ -4,6 +4,8 @@ import academy.mindswap.andrecastrosousa.command.action.ActionCommand;
 import academy.mindswap.andrecastrosousa.command.action.ActionInvoker;
 import academy.mindswap.andrecastrosousa.domain.Character;
 import academy.mindswap.andrecastrosousa.domain.Division;
+import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderException;
+import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.domain.House;
 
@@ -21,11 +23,7 @@ public class DoActionCommand implements Command {
     }
 
     @Override
-    public void execute() throws HouseTooDirtyException {
-        House house = character.getHouse();
-
-        house.increaseDirtyLevel();
-
+    public void execute() throws HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException {
         ActionCommand command = division.getAction();
         command.setCharacter(character);
 

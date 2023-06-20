@@ -20,7 +20,7 @@ public class HouseMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication {
+    public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
 
         List<String> options = Database.houses.stream()
                 .map(House::toString)

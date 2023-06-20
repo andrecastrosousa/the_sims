@@ -11,6 +11,16 @@ public abstract class NeedStatusImpl implements NeedStatus {
     }
 
     @Override
+    public int getStamina() {
+        return stamina;
+    }
+
+    @Override
+    public NeedsType getType() {
+        return type;
+    }
+
+    @Override
     public void update(int stamina) {
         if(this.stamina + stamina < 0) {
             this.stamina = 0;
@@ -20,11 +30,6 @@ public abstract class NeedStatusImpl implements NeedStatus {
             return;
         }
         this.stamina += stamina;
-    }
-
-    @Override
-    public NeedsType getType() {
-        return type;
     }
 
     @Override

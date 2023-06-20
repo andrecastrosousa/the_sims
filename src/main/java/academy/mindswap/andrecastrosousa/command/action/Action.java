@@ -2,6 +2,9 @@ package academy.mindswap.andrecastrosousa.command.action;
 
 import academy.mindswap.andrecastrosousa.domain.Character;
 import academy.mindswap.andrecastrosousa.domain.Division;
+import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderException;
+import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
+import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 
 public abstract class Action implements ActionCommand {
 
@@ -14,7 +17,7 @@ public abstract class Action implements ActionCommand {
     };
 
     @Override
-    public void perform(Division division) {
+    public void perform(Division division) throws CharacterFullBladderException, HouseTooDirtyException, CharacterNoEnergyException {
         character.goTo(division);
     }
 

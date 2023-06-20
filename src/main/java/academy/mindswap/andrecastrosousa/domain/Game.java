@@ -44,6 +44,10 @@ public class Game {
                 System.out.println(Messages.SEPARATOR+ "\n");
 
                 menuType = MenuType.HOUSEKEEPER_MENU;
+            } catch (CharacterFullBladderException | CharacterNoEnergyException e) {
+                System.out.println(Messages.SEPARATOR);
+                System.out.println(e.getMessage());
+                System.out.println(Messages.SEPARATOR+ "\n");
             }
         }
     }
