@@ -7,17 +7,17 @@ import academy.mindswap.andrecastrosousa.domain.House;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 
 public class BuyHouseCommand implements Command {
-    private final Sim sim;
     private final House house;
 
 
-    public BuyHouseCommand(Sim sim, House house) {
-        this.sim = sim;
+    public BuyHouseCommand(House house) {
         this.house = house;
     }
 
     @Override
     public void execute() throws NoFundsEnoughtException {
+        Sim sim = Game.getSim();
+
         if(sim.getBalance() < house.getCost()) {
             throw new NoFundsEnoughtException();
         }

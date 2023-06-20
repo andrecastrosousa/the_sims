@@ -8,7 +8,7 @@ import java.util.List;
 
 public class OpenSkillsCommand implements Command {
 
-    private List<Skill> skills;
+    private final List<Skill> skills;
 
     public OpenSkillsCommand(List<Skill> skills) {
         this.skills = skills;

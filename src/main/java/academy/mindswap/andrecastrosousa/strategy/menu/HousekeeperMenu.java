@@ -21,7 +21,7 @@ public class HousekeeperMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
 
         System.out.println(Messages.HOUSEKEEPER_MESSAGE);
 
@@ -36,17 +36,19 @@ public class HousekeeperMenu extends MenuBase {
             String secondMessage = terminal.selectOption();
             System.out.println(Messages.SEPARATOR + "\n");
 
-            Command command = getValidCommand(message + " " + secondMessage, sim);
+            Command command = getValidCommand(message + " " + secondMessage);
             commandInvoker.setCommand(command);
         } catch (UnknownCommandException e) {
-            handle(sim);
+            handle();
         }
 
         commandInvoker.invoke();
     }
 
     @Override
-    protected Command getValidCommand(String message, Sim sim) throws UnknownCommandException {
+    protected Command getValidCommand(String message) throws UnknownCommandException {
+        Sim sim = Game.getSim();
+
         List<Integer> valuesInserted = Arrays.stream(message.split("[ ]+")).map(Integer::parseInt).toList();
 
         int selectedOption = valuesInserted.get(0);
@@ -54,7 +56,7 @@ public class HousekeeperMenu extends MenuBase {
         if(selectedOption < 0 || selectedOption > 1) {
             throw new UnknownCommandException();
         } else if(selectedOption == 1) {
-            return new CallHousekeeperCommand(sim, sim.getHouse(), valuesInserted.get(1));
+            return new CallHousekeeperCommand(sim.getHouse(), valuesInserted.get(1));
         }
 
         return new BackCommand();

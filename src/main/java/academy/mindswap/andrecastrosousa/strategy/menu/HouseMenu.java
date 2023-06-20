@@ -20,7 +20,7 @@ public class HouseMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
 
         List<String> options = Database.houses.stream()
                 .map(House::toString)
@@ -36,23 +36,23 @@ public class HouseMenu extends MenuBase {
         String message = menuTerminal.selectOption();
 
         try {
-            Command command = getValidCommand(message, sim);
+            Command command = getValidCommand(message);
             commandInvoker.setCommand(command);
         } catch (UnknownCommandException e) {
-            handle(sim);
+            handle();
         }
 
         commandInvoker.invoke();
     }
 
     @Override
-    protected Command getValidCommand(String message, Sim sim) throws UnknownCommandException {
+    protected Command getValidCommand(String message) throws UnknownCommandException {
         int selectedOption = Integer.parseInt(message);
 
         if(selectedOption == Database.houses.size()) {
             return new BackCommand();
         } else if(selectedOption >= 0 && selectedOption < Database.houses.size()) {
-            return new BuyHouseCommand(sim, Database.houses.get(selectedOption));
+            return new BuyHouseCommand(Database.houses.get(selectedOption));
         } else {
             throw new UnknownCommandException();
         }

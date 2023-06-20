@@ -37,11 +37,6 @@ public abstract class SkillImpl implements Skill {
     }
 
     @Override
-    public int getExp() {
-        return currentExp;
-    }
-
-    @Override
     public abstract String toString();
 
     @Override

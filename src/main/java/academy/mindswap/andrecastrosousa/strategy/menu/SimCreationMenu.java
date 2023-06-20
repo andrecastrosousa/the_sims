@@ -14,12 +14,12 @@ public class SimCreationMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
 
     }
 
     @Override
-    protected Command getValidCommand(String message, Sim sim) throws UnknownCommandException {
+    protected Command getValidCommand(String message) throws UnknownCommandException {
         return null;
     }
 

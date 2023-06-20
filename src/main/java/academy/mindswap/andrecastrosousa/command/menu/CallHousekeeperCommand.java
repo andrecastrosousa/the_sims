@@ -9,26 +9,23 @@ import academy.mindswap.andrecastrosousa.exceptions.*;
 import java.util.stream.IntStream;
 
 public class CallHousekeeperCommand implements Command {
-
-    private final House house;
     private final int hour;
-    private final Sim sim;
 
-    public CallHousekeeperCommand(Sim sim, House house, int hour) {
-        this.house = house;
+    public CallHousekeeperCommand(House house, int hour) {
         this.hour = hour;
-        this.sim = sim;
     }
 
     @Override
     public void execute() throws NoFundsEnoughtException, CharacterNoHouseException, ExitApplication, HouseTooDirtyException, BackApplication {
+        Sim sim = Game.getSim();
+
         if(sim.getBalance() - (10 * hour) < 0) {
             throw new NoFundsEnoughtException();
         }
 
         IntStream.range(0, hour).forEach(h -> {
             try {
-                house.decreaseDirtyLevel();
+                sim.getHouse().decreaseDirtyLevel();
             } catch (HouseAlreadyCleanException ignored) {
             }
         });

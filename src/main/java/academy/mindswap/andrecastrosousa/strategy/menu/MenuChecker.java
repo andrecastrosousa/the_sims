@@ -27,10 +27,10 @@ public class MenuChecker {
         ));
     }
 
-    public void showMenu(MenuType interaction, Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void showMenu(MenuType interaction) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
         for (Menu menu : menus) {
             if(menu.canHandle(interaction)) {
-                menu.handle(sim);
+                menu.handle();
             }
         }
     }

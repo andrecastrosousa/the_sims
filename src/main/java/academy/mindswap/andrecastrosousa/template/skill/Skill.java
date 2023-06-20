@@ -11,7 +11,5 @@ public interface Skill extends Serializable {
 
     SkillLevel getLevel();
 
-    int getExp();
-
     SkillType getType();
 }

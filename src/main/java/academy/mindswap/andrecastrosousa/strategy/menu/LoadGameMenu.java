@@ -19,7 +19,7 @@ public class LoadGameMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
         LoadGameSystem loadGameMenu = LoadGameSystem.getInstance();
 
         MenuTerminal menuTerminal = new MenuTerminal.Builder()
@@ -32,27 +32,17 @@ public class LoadGameMenu extends MenuBase {
         String message = menuTerminal.selectOption();
 
         try {
-            commandInvoker.setCommand(getValidCommand(message, sim));
+            commandInvoker.setCommand(getValidCommand(message));
         } catch (UnknownCommandException e) {
-            handle(sim);
+            handle();
         }
 
         commandInvoker.invoke();
     }
 
     @Override
-    protected Command getValidCommand(String message, Sim sim) throws UnknownCommandException {
-        LoadGameSystem loadGameMenu = LoadGameSystem.getInstance();
-
-        int selectedOption = Integer.parseInt(message);
-
-        if(selectedOption == loadGameMenu.getLoadGameOptions().size()) {
-            return new BackCommand();
-        } else if(selectedOption >= 0 && selectedOption < loadGameMenu.getLoadGameOptions().size()) {
-            return new BuyHouseCommand(sim, Database.houses.get(selectedOption));
-        } else {
-            throw new UnknownCommandException();
-        }
+    protected Command getValidCommand(String message) throws UnknownCommandException {
+        return null;
     }
 
     @Override

@@ -12,6 +12,4 @@ public interface ActionCommand extends Serializable {
     void perform(Division division) throws CharacterFullBladderException, HouseTooDirtyException, CharacterNoEnergyException;
 
     ActionType getType();
-
-    void setCharacter(Sim sim);
 }

@@ -31,7 +31,7 @@ public class Game {
 
         while(true) {
             try {
-                menu.showMenu(menuType, sim);
+                menu.showMenu(menuType);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             } catch (ExitApplication e) {

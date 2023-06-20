@@ -19,7 +19,7 @@ public class SimMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
         MenuTerminal menuTerminal = new MenuTerminal.Builder()
                 .setOptions(SimMenuOption.getMenuOptions())
                 .hasBackButton()
@@ -30,22 +30,22 @@ public class SimMenu extends MenuBase {
         String message = menuTerminal.selectOption();
 
         try {
-            commandInvoker.setCommand(getValidCommand(message, sim));
+            commandInvoker.setCommand(getValidCommand(message));
         } catch (UnknownCommandException e) {
-            handle(sim);
+            handle();
         }
 
         commandInvoker.invoke();
     }
 
     @Override
-    protected Command getValidCommand(String message, Sim sim) throws UnknownCommandException {
+    protected Command getValidCommand(String message) throws UnknownCommandException {
         int selectedOption = Integer.parseInt(message);
 
         if(selectedOption == SimMenuOption.values().length) {
             return new BackCommand();
         } else if(selectedOption >= 0 && selectedOption < SimMenuOption.values().length - 1) {
-            return MenuCommandsFactory.fromSimMenu(Integer.parseInt(message) + 1, sim);
+            return MenuCommandsFactory.fromSimMenu(Integer.parseInt(message) + 1);
         } else {
             throw new UnknownCommandException();
         }

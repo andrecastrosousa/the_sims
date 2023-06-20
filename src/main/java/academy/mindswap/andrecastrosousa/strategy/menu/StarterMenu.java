@@ -1,5 +1,6 @@
 package academy.mindswap.andrecastrosousa.strategy.menu;
 
+import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.factory.MenuCommandsFactory;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
@@ -17,7 +18,7 @@ public class StarterMenu extends MenuBase {
     }
 
     @Override
-    public void handle(Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
         MenuTerminal menuTerminal = new MenuTerminal.Builder()
                 .setOptions(StarterMenuOption.getMenuOptions())
                 .build();
@@ -27,22 +28,22 @@ public class StarterMenu extends MenuBase {
         String message = menuTerminal.selectOption();
 
         try {
-            commandInvoker.setCommand(getValidCommand(message, sim));
+            commandInvoker.setCommand(getValidCommand(message));
         } catch (UnknownCommandException e) {
-            handle(sim);
+            handle();
         }
 
         commandInvoker.invoke();
     }
 
     @Override
-    protected Command getValidCommand(String message, Sim sim) throws UnknownCommandException {
+    protected Command getValidCommand(String message) throws UnknownCommandException {
         int selectedOption = Integer.parseInt(message);
 
         if(selectedOption < 0 || selectedOption >= StarterMenuOption.values().length - 1) {
             throw new UnknownCommandException();
         }
-        return MenuCommandsFactory.fromStarterMenu(Integer.parseInt(message), sim);
+        return MenuCommandsFactory.fromStarterMenu(Integer.parseInt(message));
     }
 
     @Override

@@ -25,6 +25,7 @@ public abstract class MenuBase implements Menu {
             case ACTIONS_MENU -> new ActionMenu();
             case SIM_MENU -> new SimMenu();
             case HOUSEKEEPER_MENU -> new HousekeeperMenu();
+            case SIM_CREATION_MENU -> new SimCreationMenu();
             case LOAD_GAME_MENU -> new LoadGameMenu();
         };
     }
@@ -35,9 +36,9 @@ public abstract class MenuBase implements Menu {
     }
 
     @Override
-    public abstract void handle(Sim sim) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException;
+    public abstract void handle() throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException;
 
-    protected abstract Command getValidCommand(String message, Sim sim) throws UnknownCommandException;
+    protected abstract Command getValidCommand(String message) throws UnknownCommandException;
 
     @Override
     public abstract void back();

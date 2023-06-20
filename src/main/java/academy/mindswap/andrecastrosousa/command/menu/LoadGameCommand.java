@@ -9,7 +9,7 @@ import java.io.ObjectInputStream;
 
 public class LoadGameCommand implements Command {
 
-    private String loadGameFile;
+    private final String loadGameFile;
 
     public LoadGameCommand(String loadGameFile) {
         this.loadGameFile = loadGameFile;
