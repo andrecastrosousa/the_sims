@@ -21,6 +21,8 @@ public class BuyHouseCommand implements Command {
         if(character.getBalance() < house.getCost()) {
             throw new NoFundsEnoughtException();
         }
+
+        character.pay(house.getCost());
         character.setHouse(house);
 
         Game.setMenuType(MenuType.SIM_MENU);

@@ -68,19 +68,6 @@ public class Character {
         return needs;
     }
 
-    public List<ActionCommand> getActions (){
-        List<ActionCommand> commands = new java.util.ArrayList<>(house.getDivisions().stream()
-                .map(Division::getAction)
-                .toList());
-
-        commands.addAll(ActionType.getActionsWithoutDivisions().stream()
-                .map(ActionType::getAction)
-                .toList()
-        );
-
-        return commands;
-    }
-
     public Account getAccount() {
         return account;
     }
@@ -98,7 +85,7 @@ public class Character {
         }
     }
 
-    public void pay(int amount) throws NoFundsEnoughtException {
+    public void pay(double amount) throws NoFundsEnoughtException {
         account.pay(amount);
     }
 }

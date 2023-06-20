@@ -1,31 +1,30 @@
-package academy.mindswap.andrecastrosousa.strategy;
+package academy.mindswap.andrecastrosousa.strategy.menu;
 
-import academy.mindswap.andrecastrosousa.command.menu.DoActionCommand;
-import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
-import academy.mindswap.andrecastrosousa.domain.Character;
-import academy.mindswap.andrecastrosousa.exceptions.*;
-import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
+import academy.mindswap.andrecastrosousa.DB.Database;
+import academy.mindswap.andrecastrosousa.command.menu.BuyHouseCommand;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
 import academy.mindswap.andrecastrosousa.command.menu.CommandInvoker;
+import academy.mindswap.andrecastrosousa.exceptions.*;
+import academy.mindswap.andrecastrosousa.domain.House;
+import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
+import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
-import academy.mindswap.andrecastrosousa.utils.Messages;
+import academy.mindswap.andrecastrosousa.domain.Character;
 
 import java.io.IOException;
 import java.util.List;
 
-public class ActionMenu extends MenuBase {
-
-    public ActionMenu(CommandInvoker commandInvoker) {
-        super(commandInvoker, MenuType.ACTIONS_MENU);
+public class HouseMenu extends MenuBase {
+    public HouseMenu(CommandInvoker commandInvoker) {
+        super(commandInvoker, MenuType.BUY_HOUSE_MENU);
     }
 
     @Override
     public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
-        List<String> options = character.getHouse().getDivisions().stream()
-                .map(d -> String.format(Messages.GO_TO_COMMAND, d.getName(), d.getAction().toString()))
-                .toList();
 
-        System.out.println("Level of cleanness: " + character.getHouse().getDirtyLevel());
+        List<String> options = Database.houses.stream()
+                .map(House::toString)
+                .toList();
 
         MenuTerminal menuTerminal = new MenuTerminal.MenuTerminalBuilder()
                 .setOptions(options)
@@ -50,10 +49,10 @@ public class ActionMenu extends MenuBase {
     protected Command getValidCommand(String message, Character character) throws UnknownCommandException {
         int selectedOption = Integer.parseInt(message);
 
-        if(selectedOption == character.getHouse().getDivisions().size()) {
+        if(selectedOption == Database.houses.size()) {
             return new BackCommand();
-        } else if(selectedOption >= 0 && selectedOption < character.getHouse().getDivisions().size()) {
-            return new DoActionCommand(character, character.getHouse().getDivisions().get(selectedOption));
+        } else if(selectedOption >= 0 && selectedOption < Database.houses.size()) {
+            return new BuyHouseCommand(character, Database.houses.get(selectedOption));
         } else {
             throw new UnknownCommandException();
         }

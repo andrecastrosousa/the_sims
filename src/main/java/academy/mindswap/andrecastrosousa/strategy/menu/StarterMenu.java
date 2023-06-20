@@ -1,4 +1,4 @@
-package academy.mindswap.andrecastrosousa.strategy;
+package academy.mindswap.andrecastrosousa.strategy.menu;
 
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.factory.MenuCommandsFactory;

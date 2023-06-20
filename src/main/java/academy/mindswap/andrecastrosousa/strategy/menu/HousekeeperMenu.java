@@ -1,4 +1,4 @@
-package academy.mindswap.andrecastrosousa.strategy;
+package academy.mindswap.andrecastrosousa.strategy.menu;
 
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
 import academy.mindswap.andrecastrosousa.command.menu.CallHousekeeperCommand;

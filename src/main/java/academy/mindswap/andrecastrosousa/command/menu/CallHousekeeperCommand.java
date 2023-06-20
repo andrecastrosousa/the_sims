@@ -22,6 +22,10 @@ public class CallHousekeeperCommand implements Command {
 
     @Override
     public void execute() throws NoFundsEnoughtException, CharacterNoHouseException, ExitApplication, HouseTooDirtyException, BackApplication {
+        if(character.getBalance() - (10 * hour) < 0) {
+            throw new NoFundsEnoughtException();
+        }
+
         IntStream.range(0, hour).forEach(h -> {
             try {
                 house.decreaseDirtyLevel();

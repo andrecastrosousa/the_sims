@@ -3,7 +3,7 @@ package academy.mindswap.andrecastrosousa.domain;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.state.menu.MenuState;
 import academy.mindswap.andrecastrosousa.utils.Messages;
-import academy.mindswap.andrecastrosousa.strategy.MenuChecker;
+import academy.mindswap.andrecastrosousa.strategy.menu.MenuChecker;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 
 import java.io.IOException;
@@ -32,7 +32,7 @@ public class Game {
                 System.out.println(e.getMessage());
             } catch (ExitApplication e) {
                 System.exit(0);
-            } catch (CharacterNoHouseException | NoFundsEnoughtException e) {
+            } catch (CharacterNoHouseException e) {
                 System.out.println(Messages.SEPARATOR);
                 System.out.println(e.getMessage() + "\n");
                 menuType = MenuType.BUY_HOUSE_MENU;
@@ -44,7 +44,7 @@ public class Game {
                 System.out.println(Messages.SEPARATOR+ "\n");
 
                 menuType = MenuType.HOUSEKEEPER_MENU;
-            } catch (CharacterFullBladderException | CharacterNoEnergyException e) {
+            } catch (CharacterFullBladderException | CharacterNoEnergyException | NoFundsEnoughtException e) {
                 System.out.println(Messages.SEPARATOR);
                 System.out.println(e.getMessage());
                 System.out.println(Messages.SEPARATOR+ "\n");
