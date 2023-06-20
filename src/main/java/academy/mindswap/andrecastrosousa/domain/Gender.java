@@ -1,6 +1,8 @@
 package academy.mindswap.andrecastrosousa.domain;
 
-public enum Gender {
+import java.io.Serializable;
+
+public enum Gender implements Serializable {
     MALE,
     FEMALE;
 }

@@ -2,7 +2,9 @@ package academy.mindswap.andrecastrosousa.domain;
 
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     private double balance;
 
     private final int id;

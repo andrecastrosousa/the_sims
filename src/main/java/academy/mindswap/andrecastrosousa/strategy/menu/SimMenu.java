@@ -15,8 +15,8 @@ import java.io.IOException;
 
 public class SimMenu extends MenuBase {
 
-    public SimMenu(CommandInvoker commandInvoker) {
-        super(commandInvoker, MenuType.SIM_MENU);
+    public SimMenu() {
+        super(MenuType.SIM_MENU);
     }
 
     @Override

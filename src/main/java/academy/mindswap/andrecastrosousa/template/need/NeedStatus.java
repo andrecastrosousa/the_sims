@@ -1,6 +1,8 @@
 package academy.mindswap.andrecastrosousa.template.need;
 
-public interface NeedStatus {
+import java.io.Serializable;
+
+public interface NeedStatus extends Serializable {
 
     void update(int stamina);
 

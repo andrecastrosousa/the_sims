@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ActionMenu extends MenuBase {
 
-    public ActionMenu(CommandInvoker commandInvoker) {
-        super(commandInvoker, MenuType.ACTIONS_MENU);
+    public ActionMenu() {
+        super(MenuType.ACTIONS_MENU);
     }
 
     @Override

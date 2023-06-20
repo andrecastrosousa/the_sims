@@ -17,19 +17,14 @@ import java.util.List;
 
 public class HousekeeperMenu extends MenuBase {
 
-    public HousekeeperMenu(CommandInvoker commandInvoker) {
-        super(commandInvoker, MenuType.HOUSEKEEPER_MENU);
+    public HousekeeperMenu() {
+        super(MenuType.HOUSEKEEPER_MENU);
     }
 
     @Override
     public void handle(Character character) throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
-        System.out.println(Messages.SEPARATOR);
-        System.out.println("|    Do you want to call housekeeper?         |");
-        System.out.println("|            10€ per hour                     |");
-        System.out.println("|         1 hour per dirty level              |");
-        System.out.println("|                                             |");
-        System.out.println("|       1 -> yes            0 -> no           |");
-        System.out.println(Messages.SEPARATOR);
+
+        System.out.println(Messages.HOUSEKEEPER_MESSAGE);
 
         MenuTerminal terminal = new MenuTerminal.Builder()
                 .build();

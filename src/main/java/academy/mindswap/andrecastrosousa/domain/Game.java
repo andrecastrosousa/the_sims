@@ -37,7 +37,7 @@ public class Game {
                 System.out.println(e.getMessage() + "\n");
                 menuType = MenuType.BUY_HOUSE_MENU;
             } catch (BackApplication e) {
-                MenuBase.buildMenuState(menuType).back();
+                MenuBase.buildMenu(menuType).back();
             } catch (HouseTooDirtyException e) {
                 System.out.println(Messages.SEPARATOR);
                 System.out.println(e.getMessage());

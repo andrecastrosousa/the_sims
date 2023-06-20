@@ -10,9 +10,10 @@ import academy.mindswap.andrecastrosousa.strategy.needs.NeedStaminaChecker;
 import academy.mindswap.andrecastrosousa.template.need.NeedStatus;
 import academy.mindswap.andrecastrosousa.template.skill.Skill;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Character {
+public class Character implements Serializable {
     private String name;
 
     private Gender gender;
@@ -85,14 +86,10 @@ public class Character {
 
         house.increaseDirtyLevel();
 
-        Skill skill = skills.stream()
+        skills.stream()
                 .filter(s -> s.getType() == division.getAction().getType().getSkillType())
                 .findFirst()
-                .orElse(null);
-
-        if(skill != null) {
-            skill.improve(30);
-        }
+                .ifPresent(skill -> skill.improve(30));
 
         for(NeedStatus needStatus: needs) {
             int staminaCost = division.getAction().getType().getStaminaCost(needStatus);
@@ -102,5 +99,17 @@ public class Character {
 
     public void pay(double amount) throws NoFundsEnoughtException {
         account.pay(amount);
+    }
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "name='" + name + '\'' +
+                ", gender=" + gender +
+                ", account=" + account +
+                ", house=" + house +
+                ", needs=" + needs +
+                ", skills=" + skills +
+                '}';
     }
 }

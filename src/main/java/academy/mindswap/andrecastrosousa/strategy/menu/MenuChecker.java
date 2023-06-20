@@ -18,14 +18,13 @@ public class MenuChecker {
     private final List<Menu> menus;
 
     public MenuChecker() {
-        CommandInvoker commandInvoker = new CommandInvoker();
-
         menus = new ArrayList<>(List.of(
-                new StarterMenu(commandInvoker),
-                new HouseMenu(commandInvoker),
-                new ActionMenu(commandInvoker),
-                new SimMenu(commandInvoker),
-                new HousekeeperMenu(commandInvoker)
+                new StarterMenu(),
+                new HouseMenu(),
+                new ActionMenu(),
+                new SimMenu(),
+                new HousekeeperMenu(),
+                new LoadGameMenu()
         ));
     }
 

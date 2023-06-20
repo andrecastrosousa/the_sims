@@ -2,6 +2,7 @@ package academy.mindswap.andrecastrosousa.factory;
 
 import academy.mindswap.andrecastrosousa.command.menu.*;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.GoToHousekeeperMenu;
+import academy.mindswap.andrecastrosousa.command.menu.navigate.GoToLoadGameCommand;
 import academy.mindswap.andrecastrosousa.domain.Character;
 import academy.mindswap.andrecastrosousa.exceptions.UnknownCommandException;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.ExitCommand;
@@ -21,6 +22,7 @@ public abstract class MenuCommandsFactory {
 
         return switch (starterMenuOption) {
             case START -> new StartCommand(character);
+            case LOAD_GAME -> new GoToLoadGameCommand();
             case EXIT -> new ExitCommand();
             case UNKNOWN -> throw new UnknownCommandException();
         };
@@ -36,6 +38,7 @@ public abstract class MenuCommandsFactory {
             case FINANCIAL -> new OpenFinancialCommand(character.getAccount());
             case CAREER -> new OpenCarrerCommand();
             case CALL_HOUSEKEEPER -> new GoToHousekeeperMenu();
+            case SAVE_GAME -> new SaveCommand(character);
             case UNKNOWN -> throw new UnknownCommandException();
         };
     }

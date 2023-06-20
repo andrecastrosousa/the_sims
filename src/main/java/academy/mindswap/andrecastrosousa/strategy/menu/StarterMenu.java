@@ -13,8 +13,8 @@ import java.io.IOException;
 
 public class StarterMenu extends MenuBase {
 
-    public StarterMenu(CommandInvoker commandInvoker) {
-        super(commandInvoker, MenuType.STARTER_MENU);
+    public StarterMenu() {
+        super(MenuType.STARTER_MENU);
     }
 
     @Override

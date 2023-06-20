@@ -8,6 +8,7 @@ import java.util.List;
 public enum StarterMenuOption {
     EXIT(0, Messages.EXIT_COMMAND),
     START(1, Messages.START_GAME_COMMAND),
+    LOAD_GAME(2, Messages.LOAD_GAME_COMMAND),
     UNKNOWN;
 
     private int option;

@@ -37,6 +37,8 @@ public class Messages {
 
     public static final String START_GAME_COMMAND = "Start game";
 
+    public static final String LOAD_GAME_COMMAND = "Load game";
+
     /* ------------------------------ SIM MENU -----------------------------------------------*/
 
     public static final String ACTIONS_COMMAND = "Go to actions";
@@ -64,6 +66,17 @@ public class Messages {
     public static final String SEPARATOR = "-----------------------------------------------";
 
     public static final String PROGRESS_BAR = "▒";
+
+    public static final String HOUSEKEEPER_MESSAGE = """
+                    -----------------------------------------------
+                    |    Do you want to call housekeeper?         |
+                    |            10€ per hour                     |
+                    |         1 hour per dirty level              |
+                    |                                             |
+                    |       1 -> yes            0 -> no           |
+                    -----------------------------------------------
+            """;
+
 
 
     private Messages () {}

@@ -2,7 +2,9 @@ package academy.mindswap.andrecastrosousa.domain;
 
 import academy.mindswap.andrecastrosousa.command.action.ActionType;
 
-public class Skill {
+import java.io.Serializable;
+
+public class Skill implements Serializable {
     private final String name;
 
 

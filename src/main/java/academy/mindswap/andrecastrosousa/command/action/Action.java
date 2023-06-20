@@ -6,6 +6,8 @@ import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderExceptio
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 
+import java.io.Serializable;
+
 public abstract class Action implements ActionCommand {
 
     protected final ActionType type;

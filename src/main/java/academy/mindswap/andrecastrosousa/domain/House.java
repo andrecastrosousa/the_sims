@@ -5,9 +5,10 @@ import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.state.dirty.DirtyLevel;
 import academy.mindswap.andrecastrosousa.state.dirty.DirtyState;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class House {
+public class House implements Serializable {
 
     private final List<Division> divisions;
     private final double cost;

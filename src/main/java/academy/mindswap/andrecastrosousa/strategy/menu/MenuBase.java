@@ -13,18 +13,19 @@ public abstract class MenuBase implements Menu {
 
     protected final MenuType type;
 
-    public MenuBase(CommandInvoker commandInvoker, MenuType type) {
-        this.commandInvoker = commandInvoker;
+    public MenuBase(MenuType type) {
+        this.commandInvoker = new CommandInvoker();
         this.type = type;
     }
 
-    public static Menu buildMenuState(MenuType menuType) {
+    public static Menu buildMenu(MenuType menuType) {
         return switch (menuType) {
-            case STARTER_MENU -> new StarterMenu(new CommandInvoker());
-            case BUY_HOUSE_MENU -> new HouseMenu(new CommandInvoker());
-            case ACTIONS_MENU -> new ActionMenu(new CommandInvoker());
-            case SIM_MENU -> new SimMenu(new CommandInvoker());
-            case HOUSEKEEPER_MENU -> new HousekeeperMenu(new CommandInvoker());
+            case STARTER_MENU -> new StarterMenu();
+            case BUY_HOUSE_MENU -> new HouseMenu();
+            case ACTIONS_MENU -> new ActionMenu();
+            case SIM_MENU -> new SimMenu();
+            case HOUSEKEEPER_MENU -> new HousekeeperMenu();
+            case LOAD_GAME_MENU -> new LoadGameMenu();
         };
     }
 

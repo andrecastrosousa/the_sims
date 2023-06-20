@@ -6,7 +6,9 @@ import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderExceptio
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 
-public interface ActionCommand {
+import java.io.Serializable;
+
+public interface ActionCommand extends Serializable {
     void perform(Division division) throws CharacterFullBladderException, HouseTooDirtyException, CharacterNoEnergyException;
 
     ActionType getType();

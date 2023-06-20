@@ -3,7 +3,9 @@ package academy.mindswap.andrecastrosousa.domain;
 import academy.mindswap.andrecastrosousa.command.action.Action;
 import academy.mindswap.andrecastrosousa.command.action.ActionCommand;
 
-public class Division {
+import java.io.Serializable;
+
+public class Division implements Serializable {
     private final String name;
     private final Action action;
     private final double exp;
