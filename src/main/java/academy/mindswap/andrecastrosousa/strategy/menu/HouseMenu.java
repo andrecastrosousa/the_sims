@@ -20,7 +20,7 @@ public class HouseMenu extends MenuBase {
     }
 
     @Override
-    public void handle() throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException {
 
         List<String> options = Database.houses.stream()
                 .map(House::toString)
@@ -50,12 +50,12 @@ public class HouseMenu extends MenuBase {
         int selectedOption = Integer.parseInt(message);
 
         if(selectedOption == Database.houses.size()) {
-            return new BackCommand();
+            return new BackCommand(type);
         } else if(selectedOption >= 0 && selectedOption < Database.houses.size()) {
             return new BuyHouseCommand(Database.houses.get(selectedOption));
-        } else {
-            throw new UnknownCommandException();
         }
+
+        throw new UnknownCommandException();
     }
 
     @Override

@@ -7,7 +7,7 @@ import academy.mindswap.andrecastrosousa.exceptions.*;
 
 public class GoToLoadGameCommand implements Command {
     @Override
-    public void execute() throws NoFundsEnoughtException, CharacterNoHouseException, ExitApplication, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void execute() {
         Game.setMenuType(MenuType.LOAD_GAME_MENU);
     }
 }

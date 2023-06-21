@@ -23,11 +23,12 @@ public class MenuChecker {
                 new ActionMenu(),
                 new SimMenu(),
                 new HousekeeperMenu(),
-                new LoadGameMenu()
+                new LoadGameMenu(),
+                new SimCreationMenu()
         ));
     }
 
-    public void showMenu(MenuType interaction) throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void showMenu(MenuType interaction) throws IOException, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException {
         for (Menu menu : menus) {
             if(menu.canHandle(interaction)) {
                 menu.handle();

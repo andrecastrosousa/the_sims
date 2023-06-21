@@ -11,10 +11,15 @@ import java.time.ZoneOffset;
 public class SaveCommand implements Command {
 
     @Override
-    public void execute() throws NoFundsEnoughtException, CharacterNoHouseException, ExitApplication, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void execute() {
         Sim sim = Game.getSim();
 
-        File file = new File("./saves/" + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC) + ".json");
+        File dir = new File("./saves");
+        if(!dir.exists()) {
+            dir.mkdir();
+        }
+
+        File file = new File(dir.getPath() + "/" + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC) + ".json");
         try {
             file.createNewFile();
         } catch (IOException e) {
@@ -25,7 +30,7 @@ public class SaveCommand implements Command {
                 ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
             objectOut.writeObject(sim);
             objectOut.close();
-            System.out.println("The Object  was succesfully written to a file");
+            System.out.println("The game was successfully saved.");
 
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -13,7 +13,7 @@ public class CommandInvoker {
         this.command = command;
     }
 
-    public void invoke() throws ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void invoke() throws CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException {
         command.execute();
     }
 }

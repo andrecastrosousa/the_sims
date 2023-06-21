@@ -16,7 +16,7 @@ public class CallHousekeeperCommand implements Command {
     }
 
     @Override
-    public void execute() throws NoFundsEnoughtException, CharacterNoHouseException, ExitApplication, HouseTooDirtyException, BackApplication {
+    public void execute() throws NoFundsEnoughtException, CharacterNoHouseException, HouseTooDirtyException {
         Sim sim = Game.getSim();
 
         if(sim.getBalance() - (10 * hour) < 0) {

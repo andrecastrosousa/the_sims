@@ -20,7 +20,7 @@ public class ActionMenu extends MenuBase {
     }
 
     @Override
-    public void handle() throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException {
         Sim sim = Game.getSim();
 
         List<String> options = sim.getHouse().getDivisions().stream()
@@ -55,12 +55,12 @@ public class ActionMenu extends MenuBase {
         int selectedOption = Integer.parseInt(message);
 
         if(selectedOption == sim.getHouse().getDivisions().size()) {
-            return new BackCommand();
+            return new BackCommand(type);
         } else if(selectedOption >= 0 && selectedOption < sim.getHouse().getDivisions().size()) {
             return new DoActionCommand(sim, sim.getHouse().getDivisions().get(selectedOption));
-        } else {
-            throw new UnknownCommandException();
         }
+
+        throw new UnknownCommandException();
     }
 
     @Override

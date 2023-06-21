@@ -1,6 +1,7 @@
 package academy.mindswap.andrecastrosousa.domain;
 
 import academy.mindswap.andrecastrosousa.DB.Database;
+import academy.mindswap.andrecastrosousa.domain.enums.Gender;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderException;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;

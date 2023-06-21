@@ -21,7 +21,7 @@ public class HousekeeperMenu extends MenuBase {
     }
 
     @Override
-    public void handle() throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, CharacterFullBladderException, CharacterNoEnergyException {
 
         System.out.println(Messages.HOUSEKEEPER_MESSAGE);
 
@@ -59,7 +59,7 @@ public class HousekeeperMenu extends MenuBase {
             return new CallHousekeeperCommand(sim.getHouse(), valuesInserted.get(1));
         }
 
-        return new BackCommand();
+        return new BackCommand(type);
     }
 
     @Override

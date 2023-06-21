@@ -49,4 +49,8 @@ public class LoadGameSystem {
                 ZoneId.systemDefault())
         ).toList();
     }
+
+    public File getSavedFile(int index) {
+        return games[index];
+    }
 }

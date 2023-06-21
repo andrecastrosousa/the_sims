@@ -5,7 +5,7 @@ import academy.mindswap.andrecastrosousa.exceptions.ExitApplication;
 
 public class ExitCommand implements Command {
     @Override
-    public void execute() throws ExitApplication {
-        throw new ExitApplication();
+    public void execute() {
+        System.exit(0);
     }
 }

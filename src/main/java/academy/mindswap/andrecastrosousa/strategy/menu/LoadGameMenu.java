@@ -1,17 +1,19 @@
 package academy.mindswap.andrecastrosousa.strategy.menu;
 
-import academy.mindswap.andrecastrosousa.DB.Database;
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
-import academy.mindswap.andrecastrosousa.command.menu.BuyHouseCommand;
+import academy.mindswap.andrecastrosousa.command.menu.CallHousekeeperCommand;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
+import academy.mindswap.andrecastrosousa.command.menu.LoadGameCommand;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
-import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.Game;
+import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.singleton.LoadGameSystem;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class LoadGameMenu extends MenuBase {
     public LoadGameMenu() {
@@ -19,7 +21,7 @@ public class LoadGameMenu extends MenuBase {
     }
 
     @Override
-    public void handle() throws IOException, ExitApplication, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, CharacterFullBladderException, CharacterNoEnergyException {
         LoadGameSystem loadGameMenu = LoadGameSystem.getInstance();
 
         MenuTerminal menuTerminal = new MenuTerminal.Builder()
@@ -42,7 +44,16 @@ public class LoadGameMenu extends MenuBase {
 
     @Override
     protected Command getValidCommand(String message) throws UnknownCommandException {
-        return null;
+        LoadGameSystem loadGameMenu = LoadGameSystem.getInstance();
+
+        int selectedOption = Integer.parseInt(message);
+
+        if(selectedOption == loadGameMenu.getLoadGameOptions().size()) {
+            return new BackCommand(type);
+        } else if(selectedOption >= 0 && selectedOption < loadGameMenu.getLoadGameOptions().size()) {
+            return new LoadGameCommand(loadGameMenu.getSavedFile(selectedOption));
+        }
+        throw new UnknownCommandException();
     }
 
     @Override

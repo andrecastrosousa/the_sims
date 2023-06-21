@@ -18,7 +18,7 @@ public class StarterMenu extends MenuBase {
     }
 
     @Override
-    public void handle() throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException {
         MenuTerminal menuTerminal = new MenuTerminal.Builder()
                 .setOptions(StarterMenuOption.getMenuOptions())
                 .build();

@@ -10,7 +10,7 @@ public interface Menu {
 
     boolean canHandle(MenuType menuFlow);
 
-    void handle() throws IOException, ExitApplication, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, BackApplication, CharacterFullBladderException, CharacterNoEnergyException;
+    void handle() throws IOException, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException;
 
     void back();
 }

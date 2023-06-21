@@ -12,9 +12,13 @@ import java.util.List;
  */
 public class MenuTerminal {
 
-    private final List<String> options;
+    private List<String> options;
 
-    private final boolean hasBackButton;
+    private boolean hasBackButton;
+
+    public MenuTerminal() {
+
+    }
 
     public MenuTerminal(List<String> options, boolean hasBackButton) {
         this.options = options;

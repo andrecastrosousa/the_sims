@@ -1,7 +1,7 @@
 package academy.mindswap.andrecastrosousa.builder;
 
 import academy.mindswap.andrecastrosousa.domain.Account;
-import academy.mindswap.andrecastrosousa.domain.Gender;
+import academy.mindswap.andrecastrosousa.domain.enums.Gender;
 import academy.mindswap.andrecastrosousa.domain.House;
 import academy.mindswap.andrecastrosousa.domain.Sim;
 
