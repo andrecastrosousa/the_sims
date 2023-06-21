@@ -12,7 +12,7 @@ public class LoadGameSystem {
 
     private static LoadGameSystem instance;
 
-    private File[] games;
+    private final File[] games;
 
     private LoadGameSystem() {
         games = getGames();
@@ -48,6 +48,10 @@ public class LoadGameSystem {
                         Instant.ofEpochMilli(file.lastModified()),
                 ZoneId.systemDefault())
         ).toList();
+    }
+
+    public int getNumberOfGamesSaved() {
+        return games.length;
     }
 
     public File getSavedFile(int index) {

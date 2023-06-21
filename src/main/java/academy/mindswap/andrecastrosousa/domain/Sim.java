@@ -53,18 +53,6 @@ public class Sim implements Serializable {
         return house;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setHouse(House house) {
         this.house = house;
     }
@@ -89,20 +77,32 @@ public class Sim implements Serializable {
         return skills;
     }
 
+    public List<Division> getHouseDivisions() {
+        return house.getDivisions();
+    }
+
+    public Division getHouseDivision(int index) {
+        return house.getDivision(index);
+    }
+
+    public int getNumberOfDivisions() {
+        return house.getNumberOfDivisions();
+    }
+
     public void goTo(Division division) throws CharacterFullBladderException, HouseTooDirtyException, CharacterNoEnergyException {
 
         NeedStaminaChecker checker = new NeedStaminaChecker(needs);
-        checker.checkStamina(division.getAction().getType());
+        checker.checkStamina(division.getActionType());
 
         house.increaseDirtyLevel();
 
         skills.stream()
-                .filter(s -> s.getType() == division.getAction().getType().getSkillType())
+                .filter(s -> s.getType() == division.getSkillType())
                 .findFirst()
                 .ifPresent(skill -> skill.improve(30));
 
         for(NeedStatus needStatus: needs) {
-            int staminaCost = division.getAction().getType().getStaminaCost(needStatus);
+            int staminaCost = division.getStaminaCost(needStatus);
             needStatus.update(staminaCost);
         }
     }

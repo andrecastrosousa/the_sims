@@ -48,10 +48,6 @@ public class Game {
         Game.menuType = menuType;
     }
 
-    public static MenuType getMenuType() {
-        return menuType;
-    }
-
     public static Sim getSim() {
         return sim;
     }

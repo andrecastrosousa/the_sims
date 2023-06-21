@@ -38,8 +38,8 @@ public enum StarterMenuOption {
                 .toList();
     }
 
-    public int getOption() {
-        return option;
+    public static int getNumberOfOptions() {
+        return StarterMenuOption.values().length - 1;
     }
 
     public String getMessage() {

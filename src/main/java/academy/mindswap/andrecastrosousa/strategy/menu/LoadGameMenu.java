@@ -44,9 +44,9 @@ public class LoadGameMenu extends MenuBase {
 
         int selectedOption = Integer.parseInt(message);
 
-        if(selectedOption == loadGameMenu.getLoadGameOptions().size()) {
+        if(selectedOption == loadGameMenu.getNumberOfGamesSaved()) {
             return new BackCommand(type);
-        } else if(selectedOption >= 0 && selectedOption < loadGameMenu.getLoadGameOptions().size()) {
+        } else if(selectedOption >= 0 && selectedOption < loadGameMenu.getNumberOfGamesSaved()) {
             return new LoadGameCommand(loadGameMenu.getSavedFile(selectedOption));
         }
         throw new UnknownCommandException();

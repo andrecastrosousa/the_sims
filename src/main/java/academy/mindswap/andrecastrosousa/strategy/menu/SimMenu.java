@@ -41,9 +41,9 @@ public class SimMenu extends MenuBase {
     protected Command getValidCommand(String message) throws UnknownCommandException {
         int selectedOption = Integer.parseInt(message);
 
-        if (selectedOption == SimMenuOption.values().length) {
+        if (selectedOption == SimMenuOption.getNumberOfOptions()) {
             return new BackCommand(type);
-        } else if (selectedOption >= 0 && selectedOption < SimMenuOption.values().length - 1) {
+        } else if (selectedOption >= 0 && selectedOption < SimMenuOption.getNumberOfOptions()) {
             return MenuCommandsFactory.fromSimMenu(Integer.parseInt(message) + 1);
         }
 
@@ -53,5 +53,6 @@ public class SimMenu extends MenuBase {
     @Override
     public void back() {
         Game.setMenuType(MenuType.STARTER_MENU);
+        Game.setSim(null);
     }
 }

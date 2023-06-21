@@ -15,7 +15,6 @@ public class OpenSkillsCommand implements Command {
 
     @Override
     public void execute() {
-        // Game.setMenuType(MenuType.BUY_HOUSE_MENU);
         System.out.println("\n" + Messages.SEPARATOR);
         for (Skill skill: skills) {
             System.out.println(skill);

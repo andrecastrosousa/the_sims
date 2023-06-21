@@ -18,19 +18,11 @@ public class Account implements Serializable {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
     public void pay(double amount) throws NoFundsEnoughtException {
         if(balance - amount < 0) {
             throw new NoFundsEnoughtException();
         }
         balance -= amount;
-    }
-
-    public int getId() {
-        return id;
     }
 
     @Override

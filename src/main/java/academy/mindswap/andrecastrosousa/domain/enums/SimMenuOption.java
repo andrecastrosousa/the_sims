@@ -40,6 +40,10 @@ public enum SimMenuOption {
                 .toList();
     }
 
+    public static int getNumberOfOptions() {
+        return SimMenuOption.values().length - 1;
+    }
+
     public String getMessage() {
         return message;
     }

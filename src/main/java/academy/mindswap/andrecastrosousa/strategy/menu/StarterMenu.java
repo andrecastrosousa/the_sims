@@ -38,7 +38,7 @@ public class StarterMenu extends MenuBase {
     protected Command getValidCommand(String message) throws UnknownCommandException {
         int selectedOption = Integer.parseInt(message);
 
-        if(selectedOption < 0 || selectedOption >= StarterMenuOption.values().length - 1) {
+        if(selectedOption < 0 || selectedOption >= StarterMenuOption.getNumberOfOptions()) {
             throw new UnknownCommandException();
         }
         return MenuCommandsFactory.fromStarterMenu(Integer.parseInt(message));

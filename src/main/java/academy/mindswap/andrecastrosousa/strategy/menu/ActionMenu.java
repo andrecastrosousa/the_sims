@@ -23,8 +23,8 @@ public class ActionMenu extends MenuBase {
     public void handle() throws IOException, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException {
         Sim sim = Game.getSim();
 
-        List<String> options = sim.getHouse().getDivisions().stream()
-                .map(d -> String.format(Messages.GO_TO_COMMAND, d.getName(), d.getAction().toString()))
+        List<String> options = sim.getHouseDivisions().stream()
+                .map(division -> String.format(Messages.GO_TO_COMMAND, division.getName(), division.getAction().toString()))
                 .toList();
 
         System.out.println("Level of cleanness: " + sim.getHouse().getDirtyLevel());
@@ -54,10 +54,10 @@ public class ActionMenu extends MenuBase {
 
         int selectedOption = Integer.parseInt(message);
 
-        if(selectedOption == sim.getHouse().getDivisions().size()) {
+        if(selectedOption == sim.getNumberOfDivisions()) {
             return new BackCommand(type);
-        } else if(selectedOption >= 0 && selectedOption < sim.getHouse().getDivisions().size()) {
-            return new DoActionCommand(sim, sim.getHouse().getDivisions().get(selectedOption));
+        } else if(selectedOption >= 0 && selectedOption < sim.getNumberOfDivisions()) {
+            return new DoActionCommand(sim, sim.getHouseDivision(selectedOption));
         }
 
         throw new UnknownCommandException();

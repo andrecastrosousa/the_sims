@@ -36,6 +36,14 @@ public class House implements Serializable {
         this.dirtyLevel = dirtyLevel;
     }
 
+    public Division getDivision(int index) {
+        return divisions.get(index);
+    }
+
+    public int getNumberOfDivisions() {
+        return divisions.size();
+    }
+
     public void increaseDirtyLevel() throws HouseTooDirtyException {
         DirtyState.buildState(this).mess();
     }

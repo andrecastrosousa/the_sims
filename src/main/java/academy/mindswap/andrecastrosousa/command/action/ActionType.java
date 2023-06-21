@@ -24,7 +24,7 @@ public enum ActionType {
     private final SkillType skillType;
 
     ActionType(int bladderStamina, int energyStamina, int funStamina, int hungerStamina, int hygieneStamina, SkillType skillType) {
-        this.bladderStamina =bladderStamina;
+        this.bladderStamina = bladderStamina;
         this.energyStamina = energyStamina;
         this.funStamina = funStamina;
         this.hungerStamina = hungerStamina;
@@ -33,7 +33,7 @@ public enum ActionType {
     }
 
     ActionType(int bladderStamina, int energyStamina, int funStamina, int hungerStamina, int hygieneStamina) {
-        this.bladderStamina =bladderStamina;
+        this.bladderStamina = bladderStamina;
         this.energyStamina = energyStamina;
         this.funStamina = funStamina;
         this.hungerStamina = hungerStamina;
