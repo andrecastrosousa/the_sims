@@ -1,19 +1,15 @@
 package academy.mindswap.andrecastrosousa.strategy.menu;
 
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
-import academy.mindswap.andrecastrosousa.command.menu.CallHousekeeperCommand;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
 import academy.mindswap.andrecastrosousa.command.menu.LoadGameCommand;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.domain.Game;
-import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.singleton.LoadGameSystem;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 public class LoadGameMenu extends MenuBase {
     public LoadGameMenu() {

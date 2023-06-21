@@ -1,6 +1,5 @@
 package academy.mindswap.andrecastrosousa.command.menu;
 
-import academy.mindswap.andrecastrosousa.template.need.NeedStatus;
 import academy.mindswap.andrecastrosousa.template.skill.Skill;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 

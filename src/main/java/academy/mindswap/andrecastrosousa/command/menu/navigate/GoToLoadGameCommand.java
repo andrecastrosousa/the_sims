@@ -3,7 +3,6 @@ package academy.mindswap.andrecastrosousa.command.menu.navigate;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
 import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
-import academy.mindswap.andrecastrosousa.exceptions.*;
 
 public class GoToLoadGameCommand implements Command {
     @Override

@@ -1,11 +1,7 @@
 package academy.mindswap.andrecastrosousa.command.action;
 
 import academy.mindswap.andrecastrosousa.template.need.NeedStatus;
-import academy.mindswap.andrecastrosousa.template.skill.Skill;
 import academy.mindswap.andrecastrosousa.template.skill.SkillType;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Design pattern: Abstract Factory

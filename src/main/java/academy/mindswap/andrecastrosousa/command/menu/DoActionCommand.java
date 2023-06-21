@@ -20,7 +20,7 @@ public class DoActionCommand implements Command {
     }
 
     @Override
-    public void execute() throws HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException {
+    public void execute() throws CharacterNoEnergyException, CharacterFullBladderException, HouseTooDirtyException {
         ActionCommand command = division.getAction();
 
 

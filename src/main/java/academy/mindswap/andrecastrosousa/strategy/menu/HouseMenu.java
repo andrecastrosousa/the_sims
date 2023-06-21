@@ -9,7 +9,6 @@ import academy.mindswap.andrecastrosousa.domain.House;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
-import academy.mindswap.andrecastrosousa.domain.Sim;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,7 +19,7 @@ public class HouseMenu extends MenuBase {
     }
 
     @Override
-    public void handle() throws IOException, CharacterNoHouseException, NoFundsEnoughtException, HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, CharacterNoEnergyException, CharacterFullBladderException, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException {
 
         List<String> options = Database.houses.stream()
                 .map(House::toString)

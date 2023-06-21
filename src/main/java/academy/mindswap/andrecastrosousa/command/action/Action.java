@@ -1,7 +1,6 @@
 package academy.mindswap.andrecastrosousa.command.action;
 
 import academy.mindswap.andrecastrosousa.domain.Game;
-import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.Division;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderException;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
@@ -16,7 +15,7 @@ public abstract class Action implements ActionCommand {
     };
 
     @Override
-    public void perform(Division division) throws CharacterFullBladderException, HouseTooDirtyException, CharacterNoEnergyException {
+    public void perform(Division division) throws CharacterNoEnergyException, CharacterFullBladderException, HouseTooDirtyException {
         Game.getSim().goTo(division);
     }
 

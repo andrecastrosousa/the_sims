@@ -8,7 +8,7 @@ import academy.mindswap.andrecastrosousa.exceptions.*;
 public class GoToHousekeeperMenu implements Command {
 
     @Override
-    public void execute() throws NoFundsEnoughtException, CharacterNoHouseException, HouseTooDirtyException {
+    public void execute() {
         Game.setMenuType(MenuType.HOUSEKEEPER_MENU);
     }
 }

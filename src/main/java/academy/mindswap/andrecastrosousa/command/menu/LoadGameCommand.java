@@ -20,7 +20,7 @@ public class LoadGameCommand implements Command {
 
 
     @Override
-    public void execute() throws NoFundsEnoughtException, CharacterNoHouseException, HouseTooDirtyException, CharacterFullBladderException, CharacterNoEnergyException {
+    public void execute() {
         try (FileInputStream fileIn = new FileInputStream(loadGameFile);
              ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
 

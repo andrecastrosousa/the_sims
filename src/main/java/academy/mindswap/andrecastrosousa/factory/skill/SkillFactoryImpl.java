@@ -1,8 +1,5 @@
 package academy.mindswap.andrecastrosousa.factory.skill;
 
-import academy.mindswap.andrecastrosousa.template.skill.FitnessSkill;
-import academy.mindswap.andrecastrosousa.template.skill.HerbalismSkill;
-import academy.mindswap.andrecastrosousa.template.skill.ProgrammingSkill;
 import academy.mindswap.andrecastrosousa.template.skill.Skill;
 
 import java.util.ArrayList;

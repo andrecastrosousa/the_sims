@@ -1,9 +1,6 @@
 package academy.mindswap.andrecastrosousa.domain;
 
-import academy.mindswap.andrecastrosousa.builder.SimBuilder;
-import academy.mindswap.andrecastrosousa.domain.enums.Gender;
 import academy.mindswap.andrecastrosousa.exceptions.*;
-import academy.mindswap.andrecastrosousa.strategy.menu.MenuBase;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 import academy.mindswap.andrecastrosousa.strategy.menu.MenuChecker;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;

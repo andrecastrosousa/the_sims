@@ -21,7 +21,7 @@ public class HousekeeperMenu extends MenuBase {
     }
 
     @Override
-    public void handle() throws IOException, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException, CharacterFullBladderException, CharacterNoEnergyException {
+    public void handle() throws IOException, CharacterNoEnergyException, CharacterFullBladderException, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException {
 
         System.out.println(Messages.HOUSEKEEPER_MESSAGE);
 

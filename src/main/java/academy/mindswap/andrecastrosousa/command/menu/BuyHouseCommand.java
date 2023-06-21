@@ -9,7 +9,6 @@ import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 public class BuyHouseCommand implements Command {
     private final House house;
 
-
     public BuyHouseCommand(House house) {
         this.house = house;
     }
