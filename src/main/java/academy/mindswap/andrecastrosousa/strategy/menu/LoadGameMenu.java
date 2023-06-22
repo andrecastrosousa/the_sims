@@ -7,6 +7,7 @@ import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.exceptions.*;
+import academy.mindswap.andrecastrosousa.factory.MenuCommandsFactory;
 import academy.mindswap.andrecastrosousa.singleton.LoadGameSystem;
 
 import java.io.IOException;
@@ -46,10 +47,9 @@ public class LoadGameMenu extends MenuBase {
 
         if(selectedOption == loadGameMenu.getNumberOfGamesSaved()) {
             return new BackCommand(type);
-        } else if(selectedOption >= 0 && selectedOption < loadGameMenu.getNumberOfGamesSaved()) {
-            return new LoadGameCommand(loadGameMenu.getSavedFile(selectedOption));
         }
-        throw new UnknownCommandException();
+
+        return MenuCommandsFactory.fromLoadGameMenu(selectedOption);
     }
 
     @Override

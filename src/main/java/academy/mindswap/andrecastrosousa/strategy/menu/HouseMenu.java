@@ -9,6 +9,7 @@ import academy.mindswap.andrecastrosousa.domain.House;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
+import academy.mindswap.andrecastrosousa.factory.MenuCommandsFactory;
 
 import java.io.IOException;
 import java.util.List;
@@ -50,11 +51,9 @@ public class HouseMenu extends MenuBase {
 
         if(selectedOption == Database.houses.size()) {
             return new BackCommand(type);
-        } else if(selectedOption >= 0 && selectedOption < Database.houses.size()) {
-            return new BuyHouseCommand(Database.houses.get(selectedOption));
         }
 
-        throw new UnknownCommandException();
+        return MenuCommandsFactory.fromHouseMenu(selectedOption);
     }
 
     @Override

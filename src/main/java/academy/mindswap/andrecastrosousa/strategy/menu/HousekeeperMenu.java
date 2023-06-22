@@ -1,13 +1,12 @@
 package academy.mindswap.andrecastrosousa.strategy.menu;
 
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
-import academy.mindswap.andrecastrosousa.command.menu.CallHousekeeperCommand;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.BackCommand;
-import academy.mindswap.andrecastrosousa.domain.Sim;
 import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.exceptions.*;
+import academy.mindswap.andrecastrosousa.factory.MenuCommandsFactory;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 
 import java.io.IOException;
@@ -47,19 +46,13 @@ public class HousekeeperMenu extends MenuBase {
 
     @Override
     protected Command getValidCommand(String message) throws UnknownCommandException {
-        Sim sim = Game.getSim();
-
         List<Integer> valuesInserted = Arrays.stream(message.split("[ ]+")).map(Integer::parseInt).toList();
 
-        int selectedOption = valuesInserted.get(0);
-
-        if(selectedOption < 0 || selectedOption > 1) {
-            throw new UnknownCommandException();
-        } else if(selectedOption == 1) {
-            return new CallHousekeeperCommand(sim.getHouse(), valuesInserted.get(1));
+        if(valuesInserted.get(0) == 1) {
+            return new BackCommand(type);
         }
 
-        return new BackCommand(type);
+        return MenuCommandsFactory.fromHousekeeperMenu(valuesInserted.get(0), valuesInserted.get(1));
     }
 
     @Override

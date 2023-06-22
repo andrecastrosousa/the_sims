@@ -8,6 +8,7 @@ import academy.mindswap.andrecastrosousa.exceptions.*;
 import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.command.menu.Command;
 import academy.mindswap.andrecastrosousa.builder.MenuTerminal;
+import academy.mindswap.andrecastrosousa.factory.MenuCommandsFactory;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 
 import java.io.IOException;
@@ -56,11 +57,9 @@ public class ActionMenu extends MenuBase {
 
         if(selectedOption == sim.getNumberOfDivisions()) {
             return new BackCommand(type);
-        } else if(selectedOption >= 0 && selectedOption < sim.getNumberOfDivisions()) {
-            return new DoActionCommand(sim, sim.getHouseDivision(selectedOption));
         }
 
-        throw new UnknownCommandException();
+        return MenuCommandsFactory.fromActionMenu(selectedOption);
     }
 
     @Override

@@ -43,11 +43,8 @@ public class SimMenu extends MenuBase {
 
         if (selectedOption == SimMenuOption.getNumberOfOptions()) {
             return new BackCommand(type);
-        } else if (selectedOption >= 0 && selectedOption < SimMenuOption.getNumberOfOptions()) {
-            return MenuCommandsFactory.fromSimMenu(Integer.parseInt(message) + 1);
         }
-
-        throw new UnknownCommandException();
+        return MenuCommandsFactory.fromSimMenu(Integer.parseInt(message) + 1);
     }
 
     @Override

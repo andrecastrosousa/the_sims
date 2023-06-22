@@ -1,15 +1,17 @@
 package academy.mindswap.andrecastrosousa.factory;
 
+import academy.mindswap.andrecastrosousa.DB.Database;
 import academy.mindswap.andrecastrosousa.command.menu.*;
-import academy.mindswap.andrecastrosousa.command.menu.navigate.GoToHousekeeperMenu;
-import academy.mindswap.andrecastrosousa.command.menu.navigate.GoToLoadGameCommand;
+import academy.mindswap.andrecastrosousa.command.menu.navigate.*;
 import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.domain.Sim;
+import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.exceptions.UnknownCommandException;
-import academy.mindswap.andrecastrosousa.command.menu.navigate.ExitCommand;
-import academy.mindswap.andrecastrosousa.command.menu.navigate.GoToActionCommand;
 import academy.mindswap.andrecastrosousa.domain.enums.SimMenuOption;
 import academy.mindswap.andrecastrosousa.domain.enums.StarterMenuOption;
+import academy.mindswap.andrecastrosousa.singleton.LoadGameSystem;
+
+import java.io.File;
 
 /**
  * Design pattern: Abstract Factory
@@ -44,5 +46,44 @@ public abstract class MenuCommandsFactory {
             case SAVE_GAME -> new SaveCommand();
             case UNKNOWN -> throw new UnknownCommandException();
         };
+    }
+
+    public static Command fromLoadGameMenu(int option) throws UnknownCommandException {
+        LoadGameSystem loadGameMenu = LoadGameSystem.getInstance();
+        File file = loadGameMenu.getSavedFile(option);
+
+        if(file == null)
+            throw new UnknownCommandException();
+
+        return new LoadGameCommand(file);
+    }
+
+    public static Command fromHouseMenu(int option) throws UnknownCommandException {
+
+        if(option >= 0 && option < Database.houses.size()) {
+            return new BuyHouseCommand(Database.houses.get(option));
+        }
+
+        throw new UnknownCommandException();
+    }
+
+    public static Command fromHousekeeperMenu(int option, int hoursToPay) throws UnknownCommandException {
+        Sim sim = Game.getSim();
+
+        if(option == 1) {
+            return new CallHousekeeperCommand(sim.getHouse(), hoursToPay);
+        }
+
+        throw new UnknownCommandException();
+    }
+
+    public static Command fromActionMenu(int option) throws UnknownCommandException {
+        Sim sim = Game.getSim();
+
+        if(option >= 0 && option < sim.getNumberOfDivisions()) {
+            return new DoActionCommand(sim, sim.getHouseDivision(option));
+        }
+
+        throw new UnknownCommandException();
     }
 }
