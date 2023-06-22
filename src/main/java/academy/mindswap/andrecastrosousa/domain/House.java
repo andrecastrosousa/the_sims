@@ -1,5 +1,7 @@
 package academy.mindswap.andrecastrosousa.domain;
 
+import academy.mindswap.andrecastrosousa.composite.Division;
+import academy.mindswap.andrecastrosousa.composite.HouseComponent;
 import academy.mindswap.andrecastrosousa.exceptions.HouseAlreadyCleanException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.state.dirty.DirtyLevel;

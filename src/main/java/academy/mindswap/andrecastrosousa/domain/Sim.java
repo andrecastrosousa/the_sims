@@ -1,13 +1,15 @@
 package academy.mindswap.andrecastrosousa.domain;
 
 import academy.mindswap.andrecastrosousa.DB.Database;
+import academy.mindswap.andrecastrosousa.composite.Division;
+import academy.mindswap.andrecastrosousa.composite.Furniture;
+import academy.mindswap.andrecastrosousa.composite.HouseComponent;
 import academy.mindswap.andrecastrosousa.domain.enums.Gender;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterFullBladderException;
 import academy.mindswap.andrecastrosousa.exceptions.CharacterNoEnergyException;
 import academy.mindswap.andrecastrosousa.exceptions.HouseTooDirtyException;
 import academy.mindswap.andrecastrosousa.exceptions.NoFundsEnoughtException;
 import academy.mindswap.andrecastrosousa.factory.skill.SkillFactoryImpl;
-import academy.mindswap.andrecastrosousa.strategy.needs.NeedStaminaChecker;
 import academy.mindswap.andrecastrosousa.template.need.NeedStatus;
 import academy.mindswap.andrecastrosousa.template.skill.Skill;
 
@@ -26,6 +28,8 @@ public class Sim implements Serializable {
     private List<NeedStatus> needs;
 
     private final List<Skill> skills;
+
+    private Division currentDivision;
 
     public Sim(String name, Gender gender, Account account, House house) {
         this.name = name;
@@ -89,26 +93,30 @@ public class Sim implements Serializable {
         return house.getNumberOfDivisions();
     }
 
-    public void goTo(Division division) throws CharacterFullBladderException, HouseTooDirtyException, CharacterNoEnergyException {
-
-        NeedStaminaChecker checker = new NeedStaminaChecker(needs);
-        checker.checkStamina(division.getActionType());
+    public void interactWith(HouseComponent houseComponent) throws CharacterFullBladderException, HouseTooDirtyException, CharacterNoEnergyException {
+        houseComponent.interact();
 
         house.increaseDirtyLevel();
-
-        skills.stream()
-                .filter(s -> s.getType() == division.getSkillType())
-                .findFirst()
-                .ifPresent(skill -> skill.improve(30));
-
-        for(NeedStatus needStatus: needs) {
-            int staminaCost = division.getStaminaCost(needStatus);
-            needStatus.update(staminaCost);
-        }
     }
 
     public void pay(double amount) throws NoFundsEnoughtException {
         account.pay(amount);
+    }
+
+    public void goToDivision(Division currentDivision) {
+        this.currentDivision = currentDivision;
+    }
+
+    public List<HouseComponent> getFurnitureFromCurrentDivision() {
+        return currentDivision.getDivisionComponents();
+    }
+
+    public int getQuantityOfFurnitureInCurrentDivision() {
+        return currentDivision.getQuantityOfFurniture();
+    }
+
+    public HouseComponent getFurnitureInCurrentDivision(int index) {
+        return currentDivision.getFurniture(index);
     }
 
     @Override

@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum SimMenuOption {
-    ACTIONS(1, Messages.ACTIONS_COMMAND),
+    DIVISIONS(1, Messages.ACTIONS_COMMAND),
     NEEDS(2, Messages.NEEDS_COMMAND),
     SKILLS(3, Messages.SKILLS_COMMAND),
     FINANCIAL(4, Messages.FINANCIAL_COMMAND),

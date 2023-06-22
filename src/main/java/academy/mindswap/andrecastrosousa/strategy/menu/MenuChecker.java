@@ -23,7 +23,8 @@ public class MenuChecker {
                 new SimMenu(),
                 new HousekeeperMenu(),
                 new LoadGameMenu(),
-                new SimCreationMenu()
+                new SimCreationMenu(),
+                new DivisionMenu()
         ));
     }
 

@@ -55,7 +55,9 @@ public class Messages {
 
     /** ------------------------------ GO TO MENU ---------------------------------------------*/
 
-    public static final String GO_TO_COMMAND = "Go To %s to perform %s";
+    public static final String GO_TO_COMMAND = "Go To %s ";
+
+    public static final String PERFORM_ACTION = "Interact with %s to perform %s";
 
     /* ------------------------------ SHOP MENU -----------------------------------------------*/
 

@@ -27,6 +27,7 @@ public abstract class MenuBase implements Menu {
             case HOUSEKEEPER_MENU -> new HousekeeperMenu();
             case SIM_CREATION_MENU -> new SimCreationMenu();
             case LOAD_GAME_MENU -> new LoadGameMenu();
+            case DIVISION_MENU -> new DivisionMenu();
         };
     }
 

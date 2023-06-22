@@ -3,9 +3,10 @@ package academy.mindswap.andrecastrosousa.factory;
 import academy.mindswap.andrecastrosousa.DB.Database;
 import academy.mindswap.andrecastrosousa.command.menu.*;
 import academy.mindswap.andrecastrosousa.command.menu.navigate.*;
+import academy.mindswap.andrecastrosousa.composite.Division;
+import academy.mindswap.andrecastrosousa.composite.Furniture;
 import academy.mindswap.andrecastrosousa.domain.Game;
 import academy.mindswap.andrecastrosousa.domain.Sim;
-import academy.mindswap.andrecastrosousa.domain.enums.MenuType;
 import academy.mindswap.andrecastrosousa.exceptions.UnknownCommandException;
 import academy.mindswap.andrecastrosousa.domain.enums.SimMenuOption;
 import academy.mindswap.andrecastrosousa.domain.enums.StarterMenuOption;
@@ -37,7 +38,7 @@ public abstract class MenuCommandsFactory {
         Sim sim = Game.getSim();
 
         return switch (starterMenuOption) {
-            case ACTIONS -> new GoToActionCommand();
+            case DIVISIONS -> new GoToDivisionMenuCommand();
             case NEEDS -> new OpenNeedsCommand(sim.getNeeds());
             case SKILLS -> new OpenSkillsCommand(sim.getSkills());
             case FINANCIAL -> new OpenFinancialCommand(sim.getAccount());
@@ -77,11 +78,22 @@ public abstract class MenuCommandsFactory {
         throw new UnknownCommandException();
     }
 
-    public static Command fromActionMenu(int option) throws UnknownCommandException {
+    public static Command fromDivisionMenu(int option, Division division) throws UnknownCommandException {
         Sim sim = Game.getSim();
 
         if(option >= 0 && option < sim.getNumberOfDivisions()) {
-            return new DoActionCommand(sim, sim.getHouseDivision(option));
+            return new GoToDivisionCommand(division);
+        }
+
+        throw new UnknownCommandException();
+    }
+
+    public static Command fromActionMenu(int option) throws UnknownCommandException {
+
+        Sim sim = Game.getSim();
+
+        if(option >= 0 && option < sim.getQuantityOfFurnitureInCurrentDivision()) {
+            return new DoActionCommand((Furniture) sim.getFurnitureInCurrentDivision(option));
         }
 
         throw new UnknownCommandException();

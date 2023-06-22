@@ -7,5 +7,6 @@ public enum MenuType {
     SIM_MENU,
     HOUSEKEEPER_MENU,
     LOAD_GAME_MENU,
-    SIM_CREATION_MENU;
+    SIM_CREATION_MENU,
+    DIVISION_MENU;
 }

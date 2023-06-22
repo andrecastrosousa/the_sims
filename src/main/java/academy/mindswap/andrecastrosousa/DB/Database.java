@@ -1,9 +1,8 @@
 package academy.mindswap.andrecastrosousa.DB;
 
-import academy.mindswap.andrecastrosousa.command.action.CookAction;
-import academy.mindswap.andrecastrosousa.command.action.PeeAction;
-import academy.mindswap.andrecastrosousa.command.action.SleepAction;
-import academy.mindswap.andrecastrosousa.domain.Division;
+import academy.mindswap.andrecastrosousa.command.action.*;
+import academy.mindswap.andrecastrosousa.composite.Division;
+import academy.mindswap.andrecastrosousa.composite.Furniture;
 import academy.mindswap.andrecastrosousa.domain.House;
 import academy.mindswap.andrecastrosousa.template.need.*;
 
@@ -21,22 +20,37 @@ public class Database {
     ));
 
     public static List<House> houses = new ArrayList<>(List.of(
-       new House(new ArrayList<>(List.of(
-               new Division("Bedroom", new SleepAction(),  10),
-               new Division("Bathroom", new PeeAction(), 10),
-               new Division("Cousine", new CookAction(), 10)
-       )), 10000),
-       new House(new ArrayList<>(List.of(
-               new Division("Bedroom", new SleepAction(),  10),
-               new Division("Bathroom", new PeeAction(), 10),
-               new Division("Cousine", new CookAction(), 10)
-       )), 100000),
-       new House(new ArrayList<>(List.of(
-               new Division("Bedroom", new SleepAction(), 10),
-               new Division("Bathroom", new PeeAction(), 10),
-               new Division("Cousine", new CookAction(), 10)
-       )), 1000000)
+            generateDivisionsPerHouse(10000),
+            generateDivisionsPerHouse(100000),
+            generateDivisionsPerHouse(1000000)
     ));
+
+
+    private static House generateDivisionsPerHouse(int cost) {
+        Division bedroom = new Division("Bedroom");
+        Division bathroom = new Division("Bathroom");
+        Division kitchen = new Division("Kitchen");
+
+        Furniture table = new Furniture("Table", new EatAction(), 20);
+        Furniture stove = new Furniture("Stove", new CookAction(), 30);
+
+        kitchen.addHouseComponent(table);
+        kitchen.addHouseComponent(stove);
+
+        Furniture toilet = new Furniture("Toilet", new PeeAction(), 40);
+        Furniture shower = new Furniture("Shower", new HygieneAction(), 0);
+
+        bathroom.addHouseComponent(toilet);
+        bathroom.addHouseComponent(shower);
+
+        Furniture bed = new Furniture("Bed", new SleepAction(), 20);
+        Furniture desk = new Furniture("Desk", new WorkAction(), 20);
+
+        bedroom.addHouseComponent(bed);
+        bedroom.addHouseComponent(desk);
+
+        return new House(new ArrayList<>(List.of(bedroom, bathroom, kitchen)), cost);
+    }
 
     private Database() {};
 }

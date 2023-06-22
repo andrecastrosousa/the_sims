@@ -1,5 +1,7 @@
 package academy.mindswap.andrecastrosousa.command.action;
 
+import academy.mindswap.andrecastrosousa.domain.enums.ActionType;
+
 public class EatAction extends Action {
 
     public EatAction() {
