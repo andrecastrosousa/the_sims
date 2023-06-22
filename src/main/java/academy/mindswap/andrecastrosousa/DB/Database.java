@@ -1,10 +1,11 @@
 package academy.mindswap.andrecastrosousa.DB;
 
+import academy.mindswap.andrecastrosousa.character.needs.status.*;
 import academy.mindswap.andrecastrosousa.command.action.*;
-import academy.mindswap.andrecastrosousa.composite.Division;
-import academy.mindswap.andrecastrosousa.composite.Furniture;
-import academy.mindswap.andrecastrosousa.domain.House;
-import academy.mindswap.andrecastrosousa.template.need.*;
+import academy.mindswap.andrecastrosousa.house.Division;
+import academy.mindswap.andrecastrosousa.house.Furniture;
+import academy.mindswap.andrecastrosousa.house.House;
+import academy.mindswap.andrecastrosousa.action.*;
 
 import java.util.ArrayList;
 import java.util.List;
