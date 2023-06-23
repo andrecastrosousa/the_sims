@@ -34,18 +34,6 @@ public class Furniture implements HouseComponent {
         return action;
     }
 
-    public ActionType getActionType() {
-        return action.getType();
-    }
-
-    public SkillType getSkillType() {
-        return ((Action) action).getSkillType();
-    }
-
-    public int getStaminaCost(NeedStatus need) {
-        return ((Action) action).getStaminaCost(need);
-    }
-
     @Override
     public void interact() throws CharacterNoEnergyException, CharacterFullBladderException {
         Sim sim = Game.getSim();
