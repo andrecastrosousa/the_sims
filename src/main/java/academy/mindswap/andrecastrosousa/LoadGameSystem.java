@@ -17,13 +17,9 @@ public class LoadGameSystem {
         games = getGames();
     }
 
-    public static LoadGameSystem getInstance() {
+    public static synchronized LoadGameSystem getInstance() {
         if(instance == null) {
-            synchronized (LoadGameSystem.class) {
-                if(instance == null) {
-                    instance = new LoadGameSystem();
-                }
-            }
+            instance = new LoadGameSystem();
         }
 
         return instance;

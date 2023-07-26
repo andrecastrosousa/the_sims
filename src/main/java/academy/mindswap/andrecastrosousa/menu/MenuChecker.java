@@ -32,6 +32,7 @@ public class MenuChecker {
         for (Menu menu : menus) {
             if(menu.canHandle(interaction)) {
                 menu.handle();
+                break;
             }
         }
     }

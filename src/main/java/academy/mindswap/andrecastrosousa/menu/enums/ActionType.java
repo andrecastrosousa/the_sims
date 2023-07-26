@@ -1,6 +1,5 @@
 package academy.mindswap.andrecastrosousa.menu.enums;
 
-import academy.mindswap.andrecastrosousa.command.action.*;
 import academy.mindswap.andrecastrosousa.action.*;
 import academy.mindswap.andrecastrosousa.character.needs.status.NeedStatus;
 import academy.mindswap.andrecastrosousa.character.skills.SkillType;

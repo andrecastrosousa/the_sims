@@ -1,16 +1,41 @@
 package academy.mindswap.andrecastrosousa.DB;
 
 import academy.mindswap.andrecastrosousa.character.needs.status.*;
-import academy.mindswap.andrecastrosousa.command.action.*;
 import academy.mindswap.andrecastrosousa.house.Division;
 import academy.mindswap.andrecastrosousa.house.Furniture;
 import academy.mindswap.andrecastrosousa.house.House;
 import academy.mindswap.andrecastrosousa.action.*;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
+
+    private static Database instance;
+
+    public static synchronized Database getInstance() {
+        if(instance == null) {
+            instance = new Database();
+        }
+        return instance;
+    }
+
+    private Connection connection;
+
+    public void connect() {
+        String dbURL = "jdbc:mysql://localhost:3306/mindswap_db";
+        String username = "root";
+        String password = "123";
+
+        try {
+            connection = DriverManager.getConnection(dbURL, username, password);
+        } catch (SQLException ex) {
+            System.out.println("Connection failed: " + ex.getMessage());
+        }
+    }
 
     public static List<NeedStatus> needs = new ArrayList<>(List.of(
             new BladderStatus(),
