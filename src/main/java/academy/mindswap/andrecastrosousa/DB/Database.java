@@ -6,10 +6,9 @@ import academy.mindswap.andrecastrosousa.house.Furniture;
 import academy.mindswap.andrecastrosousa.house.House;
 import academy.mindswap.andrecastrosousa.action.*;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Database {
@@ -36,6 +35,7 @@ public class Database {
             System.out.println("Connection failed: " + ex.getMessage());
         }
     }
+
 
     public static List<NeedStatus> needs = new ArrayList<>(List.of(
             new BladderStatus(),
