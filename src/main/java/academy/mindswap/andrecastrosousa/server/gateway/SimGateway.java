@@ -5,13 +5,12 @@ import academy.mindswap.andrecastrosousa.server.models.Entity;
 import academy.mindswap.andrecastrosousa.server.models.Sim;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
-public class UserGateway implements Gateway {
+public class SimGateway implements Gateway {
 
     private final Connection dbConnection;
 
-    public UserGateway() {
+    public SimGateway() {
         dbConnection = Database.getInstance().getConnection();
     }
 

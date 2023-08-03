@@ -61,9 +61,9 @@ public abstract class MenuCommandsFactory {
 
     public static Command fromHouseMenu(int option) throws UnknownCommandException {
 
-        if(option >= 0 && option < Database.houses.size()) {
+        /*if(option >= 0 && option < Database.houses.size()) {
             return new BuyHouseCommand(Database.houses.get(option));
-        }
+        }*/
 
         throw new UnknownCommandException();
     }

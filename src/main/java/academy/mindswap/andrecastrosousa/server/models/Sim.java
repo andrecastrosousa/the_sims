@@ -33,12 +33,10 @@ public class Sim extends Entity implements Serializable {
         this.gender = gender;
         this.account = account;
         this.house = house;
-        needs = Database.needs;
         skills = SkillFactoryImpl.createBaseSkills();
     }
 
     public Sim() {
-        needs = Database.needs;
         skills = SkillFactoryImpl.createBaseSkills();
     }
 

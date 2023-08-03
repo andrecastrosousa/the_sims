@@ -20,7 +20,7 @@ public class HouseMenu extends MenuBase {
     @Override
     public void handle() throws IOException, CharacterNoEnergyException, CharacterFullBladderException, CharacterNoHouseException, HouseTooDirtyException, NoFundsEnoughtException {
 
-        List<String> options = Database.houses.stream()
+        /*List<String> options = Database.houses.stream()
                 .map(House::toString)
                 .toList();
 
@@ -40,16 +40,16 @@ public class HouseMenu extends MenuBase {
             handle();
         }
 
-        commandInvoker.invoke();
+        commandInvoker.invoke();*/
     }
 
     @Override
     protected Command getValidCommand(String message) throws UnknownCommandException {
         int selectedOption = Integer.parseInt(message);
 
-        if(selectedOption == Database.houses.size()) {
+        /*if(selectedOption == Database.houses.size()) {
             return new BackCommand(type);
-        }
+        }*/
 
         return MenuCommandsFactory.fromHouseMenu(selectedOption);
     }
