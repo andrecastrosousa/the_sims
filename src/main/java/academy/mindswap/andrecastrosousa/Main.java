@@ -1,8 +1,6 @@
 package academy.mindswap.andrecastrosousa;
 
-import academy.mindswap.andrecastrosousa.DB.Database;
-
-import java.sql.SQLException;
+import academy.mindswap.andrecastrosousa.server.Database;
 
 public class Main {
     public static void main(String[] args) {

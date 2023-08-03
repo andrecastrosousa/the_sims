@@ -1,9 +1,9 @@
 package academy.mindswap.andrecastrosousa;
 
-import academy.mindswap.andrecastrosousa.character.Sim;
-import academy.mindswap.andrecastrosousa.exceptions.*;
-import academy.mindswap.andrecastrosousa.menu.enums.MenuType;
-import academy.mindswap.andrecastrosousa.menu.MenuChecker;
+import academy.mindswap.andrecastrosousa.server.models.Sim;
+import academy.mindswap.andrecastrosousa.client.exceptions.*;
+import academy.mindswap.andrecastrosousa.client.menu.enums.MenuType;
+import academy.mindswap.andrecastrosousa.client.menu.MenuChecker;
 import academy.mindswap.andrecastrosousa.utils.Messages;
 
 import java.io.IOException;
