@@ -1,6 +1,5 @@
 package academy.mindswap.andrecastrosousa.server.models;
 
-import academy.mindswap.andrecastrosousa.server.Database;
 import academy.mindswap.andrecastrosousa.client.character.needs.status.NeedStatus;
 import academy.mindswap.andrecastrosousa.client.character.skills.factory.SkillFactoryImpl;
 import academy.mindswap.andrecastrosousa.client.house.HouseComponent;

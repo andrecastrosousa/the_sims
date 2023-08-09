@@ -2,8 +2,10 @@ package academy.mindswap.andrecastrosousa.server.gateway;
 
 import academy.mindswap.andrecastrosousa.server.models.Entity;
 
-public interface Gateway {
-    Entity findById(Long id);
+import java.sql.SQLException;
+
+public interface Mapper {
+    Entity findById(Long id) throws SQLException;
 
     Entity find(String query);
 

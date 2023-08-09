@@ -2,7 +2,7 @@ package academy.mindswap.andrecastrosousa.server.gateway;
 
 import academy.mindswap.andrecastrosousa.server.models.Entity;
 
-public class FurnitureGateway implements Gateway {
+public class AccountMapper implements Mapper {
     @Override
     public Entity findById(Long id) {
         return null;

@@ -7,10 +7,8 @@ import java.io.Serializable;
 public class Account extends Entity implements Serializable {
     private double balance;
 
-    private final int id;
-
-    public Account(int id, double balance) {
-        this.id = id;
+    public Account(Long id, double balance) {
+        super.id = id;
         this.balance = balance;
     }
 

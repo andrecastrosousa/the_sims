@@ -36,7 +36,7 @@ public class SimCreationMenu extends MenuBase {
 
         String message = menuTerminal.selectOption();
         simBuilder.setGender(Gender.getEnumByOption(Integer.parseInt(message)))
-                .setAccount(new Account(2, 100000));
+                .setAccount(new Account(2L, 100000));
 
         Sim sim = simBuilder.build();
 
